@@ -57,7 +57,7 @@ streamingLoaderWorker.onmessage = ({
         iterateElements(".controls a", (el2) => el2.classList.remove("active"));
         el.classList.add("active");
         // fillColor.value(el.id === "language" ? languageFill : yearFill);
-        redraw();
+        // redraw();
       });
     });
 
@@ -69,6 +69,7 @@ streamingLoaderWorker.onmessage = ({
       .addAll(data);
   }
 
+  console.log(data.length);
   redraw();
 };
 
@@ -87,12 +88,12 @@ const yScaleOriginal = yScale.copy();
 const zoom = d3
   .zoom()
   .scaleExtent([0.8, 1000])
-  .on("zoom", () => {
+  .on("zoom", (event) => {
     // update the scales based on current zoom
-    xScale.domain(d3.event.transform.rescaleX(xScaleOriginal).domain());
-    yScale.domain(d3.event.transform.rescaleY(yScaleOriginal).domain());
+    xScale.domain(event.transform.rescaleX(xScaleOriginal).domain());
+    yScale.domain(event.transform.rescaleY(yScaleOriginal).domain());
 
-    if (d3.event.transform.k > 4) {
+    if (event.transform.k > 4) {
       console.log("dupa");
       const pointSeries0 = fc
         .seriesWebglPoint()
@@ -152,9 +153,9 @@ const zoom = d3
           sel
             .enter()
             .select("d3fc-svg.plot-area")
-            .on("measure.range", () => {
-              xScaleOriginal.range([0, d3.event.detail.width]);
-              yScaleOriginal.range([d3.event.detail.height, 0]);
+            .on("measure.range", (event) => {
+              xScaleOriginal.range([0, event.detail.width]);
+              yScaleOriginal.range([event.detail.height, 0]);
             })
             .call(zoom)
             .call(pointer)
@@ -168,21 +169,17 @@ const annotations = [];
 
 const pointer = fc.pointer().on("point", ([coord]) => {
   annotations.pop();
-
   if (!coord || !quadtree) {
     return;
   }
-
   // find the closes datapoint to the pointer
-  const x = xScale.invert(coord.x);
-  const y = yScale.invert(coord.y);
-  const radius = 0.5;
-  const closestDatum = quadtree.find(x, y, radius);
-
+  // const x = xScale.invert(coord.x);
+  // const y = yScale.invert(coord.y);
+  // const radius = 0.5;
+  // const closestDatum = quadtree.find(x, y, radius);
   //   if (closestDatum) {
   //     annotations[0] = createAnnotationData(closestDatum);
   //   }
-
   redraw();
 });
 
@@ -248,9 +245,9 @@ let chart = fc
     sel
       .enter()
       .select("d3fc-svg.plot-area")
-      .on("measure.range", () => {
-        xScaleOriginal.range([0, d3.event.detail.width]);
-        yScaleOriginal.range([d3.event.detail.height, 0]);
+      .on("measure.range", (event) => {
+        xScaleOriginal.range([0, event.detail.width]);
+        yScaleOriginal.range([event.detail.height, 0]);
       })
       .call(zoom)
       .call(pointer)
