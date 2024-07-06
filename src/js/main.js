@@ -29,15 +29,57 @@ const streamingLoaderWorker = new Worker(
   new URL("./streaming-tsv-parser.js", import.meta.url).href
 );
 
+function getClusterCategoryList() {
+  return [
+    "biology",
+    "chemistry",
+    "computer science",
+    "earth science",
+    "engineering",
+    "humanities",
+    "materials science",
+    "mathematics",
+    "medicine",
+    "physics",
+    "social science",
+  ];
+}
+
+function clusterCategoryIdToText(clusterCategoryId) {
+  return getClusterCategoryList()[clusterCategoryId];
+}
+
+function clusterCategoryPalette() {
+  const alpha = 0.75;
+  return [
+    [0.875, 0.125, 0.125, alpha],
+    [0.875, 0.5341, 0.125, alpha],
+    [0.8068, 0.875, 0.125, alpha],
+    [0.3977, 0.875, 0.125, alpha],
+    [0.125, 0.875, 0.2614, alpha],
+    [0.125, 0.875, 0.6705, alpha],
+    [0.125, 0.6705, 0.875, alpha],
+    [0.125, 0.2614, 0.875, alpha],
+    [0.3977, 0.125, 0.875, alpha],
+    [0.8068, 0.125, 0.875, alpha],
+    [0.875, 0.125, 0.5341, alpha],
+  ];
+}
+
+function clusterCategoryIdToColor(clusterCategoryId) {
+  return clusterCategoryPalette()[clusterCategoryId];
+}
+
 streamingLoaderWorker.onmessage = ({
   data: { items, totalBytes, finished },
 }) => {
   const rows = items.map((d) => ({
     //   ...d,
-    x: Number(d.x),
-    y: Number(d.y),
-    articles_no: Number(d.num_recent_articles),
-    growth_rate: Number(d.growth_rating),
+    x: Number(d["x"]),
+    y: Number(d["y"]),
+    numRecentArticles: Number(d["num_recent_articles"]),
+    growthRating: Number(d["growth_rating"]),
+    clusterCategoryId: Number(d["cluster_category"]),
     //   year: Number(d.date),
   }));
   // .filter((d) => d.year);
@@ -102,7 +144,6 @@ function buildZoom() {
       yScale.domain(event.transform.rescaleY(yScaleOriginal).domain());
 
       const k = event.transform.k;
-      console.log("zoom:", k);
 
       const pointSeries0 = buildFcPointSeries(k);
 
@@ -151,7 +192,7 @@ const pointer = buildFcPointer();
 function pointDecorateProgram(data, program) {
   fc
     .webglFillColor()
-    .value((_) => [0.1, 0, 0.4, 0.5])
+    .value((dataPoint) => clusterCategoryIdToColor(dataPoint.clusterCategoryId))
     .data(data)(program);
 
   fc
@@ -177,7 +218,7 @@ function shaderProgramSetBlend(program) {
   gl.enable(gl.BLEND);
   gl.blendFuncSeparate(
     gl.SRC_ALPHA,
-    gl.ONE_MINUS_DST_ALPHA,
+    gl.ONE_MINUS_SRC_ALPHA,
     gl.ONE,
     gl.ONE_MINUS_SRC_ALPHA
   );
@@ -187,9 +228,8 @@ function pointDataToSize(pointData, k = 1.0) {
   k = Math.max(0.5, Math.min(k, 3.0));
   return Math.max(
     50,
-    Math.min(1000 * k * (pointData.articles_no / 1000), 10000)
+    Math.min(1000 * k * (pointData.numRecentArticles / 1000), 10000)
   );
-  k * 100; // * pointData.articles_no;
 }
 
 function buildFcPointSeries(k = 1.0) {
