@@ -1,6 +1,9 @@
 // import { seriesSvgAnnotation } from "./annotation-series.js";
 import * as d3 from "d3";
 import * as fc from "d3fc";
+import * as fca from "@d3fc/d3fc-annotation";
+import * as d3SvgAnnotation from "d3-svg-annotation";
+
 import {
   distance,
   trunc,
@@ -70,42 +73,26 @@ function clusterCategoryIdToColor(clusterCategoryId) {
   return clusterCategoryPalette()[clusterCategoryId];
 }
 
+function keyConceptsIdsParse(keyConceptsRaw) {
+  keyConceptsRaw.split(",");
+}
+
 streamingLoaderWorker.onmessage = ({
   data: { items, totalBytes, finished },
 }) => {
   const rows = items.map((d) => ({
-    //   ...d,
+    clusterId: Number(d["clusterId"]),
     x: Number(d["x"]),
     y: Number(d["y"]),
     numRecentArticles: Number(d["num_recent_articles"]),
     growthRating: Number(d["growth_rating"]),
     clusterCategoryId: Number(d["cluster_category"]),
-    //   year: Number(d.date),
+    keyConcepts: keyConceptsIdsParse(d["key_concepts"]),
   }));
-  // .filter((d) => d.year);
   data = data.concat(rows);
 
   if (finished) {
     document.getElementById("loading").style.display = "none";
-
-    // compute the fill color for each datapoint
-    // const languageFill = (d) =>
-    //   webglColor(languageColorScale(hashCode(d.language) % 10));
-    // const yearFill = (d) => webglColor(yearColorScale(d.year));
-
-    // const fillColor = fc.webglFillColor().value(languageFill).data(data);
-    // pointSeries.decorate((program) => fillColor(program));
-
-    // wire up the fill color selector
-    iterateElements(".controls a", (el) => {
-      el.addEventListener("click", () => {
-        iterateElements(".controls a", (el2) => el2.classList.remove("active"));
-        el.classList.add("active");
-        // fillColor.value(el.id === "language" ? languageFill : yearFill);
-        // redraw();
-      });
-    });
-
     // create a spatial index for rapidly finding the closest datapoint
     quadtree = d3
       .quadtree()
@@ -113,7 +100,6 @@ streamingLoaderWorker.onmessage = ({
       .y((d) => d.y)
       .addAll(data);
   }
-
   redraw();
 };
 
@@ -121,15 +107,16 @@ streamingLoaderWorker.postMessage(
   new URL("./processed1_data.tsv", import.meta.url).href
 );
 
-// const languageColorScale = d3.scaleOrdinal(d3.schemeCategory10);
-// const yearColorScale = d3
-//   .scaleSequential()
-//   .domain([1850, 2000])
-//   .interpolator(d3.interpolateRdYlGn);
 const xScale = d3.scaleLinear().domain([-500, 500]);
 const yScale = d3.scaleLinear().domain([-500, 500]);
 const xScaleOriginal = xScale.copy();
 const yScaleOriginal = yScale.copy();
+
+function buildAnnotationData(pointData) {
+  return {
+    title: pointData.clusterId,
+  };
+}
 
 function buildZoom() {
   return d3
@@ -140,19 +127,19 @@ function buildZoom() {
       xScale.domain(event.transform.rescaleX(xScaleOriginal).domain());
       yScale.domain(event.transform.rescaleY(yScaleOriginal).domain());
 
-      const k = event.transform.k;
+      // const k = event.transform.k;
 
-      const pointSeries0 = buildFcPointSeries(k);
+      // const pointSeries0 = buildFcPointSeries(k);
 
-      chart = buildChart(
-        xScale,
-        yScale,
-        xScaleOriginal,
-        yScaleOriginal,
-        pointSeries0,
-        zoom,
-        pointer
-      );
+      // chart = buildChart(
+      //   xScale,
+      //   yScale,
+      //   xScaleOriginal,
+      //   yScaleOriginal,
+      //   pointSeries0,
+      //   zoom,
+      //   pointer
+      // );
 
       redraw();
     });
@@ -161,28 +148,31 @@ function buildZoom() {
 const zoom = buildZoom();
 
 const annotations = [];
-
 function buildFcPointer() {
   return fc.pointer().on("point", ([coord]) => {
     annotations.pop();
+
     if (!coord || !quadtree) {
       return;
     }
+
     // find the closes datapoint to the pointer
     const x = xScale.invert(coord.x);
     const y = yScale.invert(coord.y);
     const radius = 0.5;
     const closestDatum = quadtree.find(x, y, radius);
-    // if (closestDatum) {
-    //   annotations[0] = createAnnotationData(closestDatum);
-    // }
+
+    if (closestDatum) {
+      annotations[0] = buildAnnotationData(closestDatum);
+    }
+
     redraw();
   });
 }
-
 const pointer = buildFcPointer();
 
-// const annotationSeries = seriesSvgAnnotation()
+const annotationSeries = buildAnnotationSeries();
+console.log("annotationSeries:", annotationSeries);
 //   .notePadding(15)
 //   .type(d3.annotationCallout);
 
@@ -194,7 +184,7 @@ function pointDecorateProgram(data, program) {
 
   fc
     .webglStrokeColor()
-    .value((_) => [0.1, 0, 0.4, 0.7])
+    .value((_) => [0.0, 0.0, 0.0, 0.5])
     .data(data)(program);
 }
 
@@ -229,6 +219,49 @@ function pointDataToSize(pointData, k = 1.0) {
   );
 }
 
+function buildAnnotationSeries() {
+  const d3Annotation = d3SvgAnnotation.annotation();
+
+  let xScale = d3.scaleLinear();
+  let yScale = d3.scaleLinear();
+
+  const join = fc.dataJoin("g", "annotation");
+
+  const series = (selection) => {
+    selection.each((data, index, group) => {
+      const projectedData = data.map((d) => ({
+        ...d,
+        x: xScale(d.x),
+        y: yScale(d.y),
+      }));
+
+      d3Annotation.annotations(projectedData);
+
+      join(d3.select(group[index]), projectedData).call(d3Annotation);
+    });
+
+    series.xScale = (...args) => {
+      if (!args.length) {
+        return xScale;
+      }
+      xScale = args[0];
+      return series;
+    };
+
+    series.yScale = (...args) => {
+      if (!args.length) {
+        return yScale;
+      }
+      yScale = args[0];
+      return series;
+    };
+
+    fc.rebindAll(series, d3Annotation);
+
+    return series;
+  };
+}
+
 function buildFcPointSeries(k = 1.0) {
   return fc
     .seriesWebglPoint()
@@ -254,13 +287,6 @@ function buildChart(
   zoom,
   pointer
 ) {
-  const axis = fc.axisBottom(xScale).decorate((s) => {
-    console.log(s.enter().style("dupa", "2137"));
-    // s.enter().style();
-    // .select("path")
-    // .style("fill", (d) => (d >= 100 ? "red" : "black"));
-  });
-
   return (
     fc
       // .chart()
@@ -274,10 +300,12 @@ function buildChart(
           .mapping((d) => d.data)
       )
       .svgPlotArea(
+        // fca.annotationSvgGridline().xScale(xScale).yScale(yScale)
+
         // only render the annotations series on the SVG layer
         fc.seriesSvgMulti()
-        //   .series([pointSeriesOverlay])
-        //   .mapping((d) => d.data)
+        // .series([annotationSeries])
+        // .mapping((d) => d.annotations)
         //       .series([annotationSeries])
         //       .mapping((d) => d.annotations)
       )

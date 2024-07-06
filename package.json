@@ -25,11 +25,13 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
+    "@d3fc/d3fc-annotation": "^3.0.15",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "d3": "^7.9.0",
     "d3-interpolate": "^3.0.1",
+    "d3-svg-annotation": "^2.5.1",
     "d3fc": "^15.2.12",
     "lodash": "^4.17.21"
   }
