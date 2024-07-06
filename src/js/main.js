@@ -92,182 +92,173 @@ const yScale = d3.scaleLinear().domain([-500, 500]);
 const xScaleOriginal = xScale.copy();
 const yScaleOriginal = yScale.copy();
 
-const zoom = d3
-  .zoom()
-  .scaleExtent([0.8, 1000])
-  .on("zoom", (event) => {
-    // update the scales based on current zoom
-    xScale.domain(event.transform.rescaleX(xScaleOriginal).domain());
-    yScale.domain(event.transform.rescaleY(yScaleOriginal).domain());
+function buildZoom() {
+  return d3
+    .zoom()
+    .scaleExtent([0.8, 1000])
+    .on("zoom", (event) => {
+      // update the scales based on current zoom
+      xScale.domain(event.transform.rescaleX(xScaleOriginal).domain());
+      yScale.domain(event.transform.rescaleY(yScaleOriginal).domain());
 
-    if (event.transform.k > 4) {
-      console.log("dupa");
-      const pointSeries0 = fc
-        .seriesWebglPoint()
-        .equals((prevData, data) => prevData === data)
-        .size((d) => Math.max(d.articles_no * 5, 1))
-        .crossValue((d) => d.x)
-        .mainValue((d) => d.y)
-        .decorate((program) => {
-          fc
-            .webglFillColor()
-            .value((d) => [0.1, 0.9, 0.4, 0.5])
-            .data(data)(program);
+      const k = event.transform.k;
+      console.log("zoom:", k);
 
-          fc
-            .webglStrokeColor()
-            .value((d) => [0.1, 0, 0.4, 0.7])
-            .data(data)(program);
+      const pointSeries0 = buildFcPointSeries(k);
 
-          // program
-          //   .fragmentShader()
-          //   .appendHeader(
-          //     "precision mediump float; uniform vec4 fill; uniform vec4 stroke;"
-          //   ).appendBody(`
-          //     vec2 d = gl_PointCoord.xy - 0.5;
-          //     vec4 col = vec4(0.0, 0.0, 0.0, 0.6 - 0.6 * smoothstep(0.4, 0.5, length(d)));
-          //     gl_FragColor = col;
-          // `);
+      chart = buildChart(
+        xScale,
+        yScale,
+        xScaleOriginal,
+        yScaleOriginal,
+        pointSeries0,
+        zoom,
+        pointer
+      );
 
-          const gl = program.context();
-          gl.enable(gl.BLEND);
-          gl.blendFuncSeparate(
-            gl.SRC_ALPHA,
-            gl.ONE_MINUS_DST_ALPHA,
-            gl.ONE,
-            gl.ONE_MINUS_SRC_ALPHA
-          );
-        });
+      redraw();
+    });
+}
 
-      chart = fc
-        .chartCartesian(xScale, yScale)
-        .webglPlotArea(
-          // only render the point series on the WebGL layer
-          fc
-            .seriesWebglMulti()
-            .series([pointSeries0])
-            .mapping((d) => d.data)
-        )
-        .svgPlotArea(
-          // only render the annotations series on the SVG layer
-          fc.seriesSvgMulti()
-          //   .series([pointSeriesOverlay])
-          //   .mapping((d) => d.data)
-          //       .series([annotationSeries])
-          //       .mapping((d) => d.annotations)
-        )
-        .decorate((sel) =>
-          sel
-            .enter()
-            .select("d3fc-svg.plot-area")
-            .on("measure.range", (event) => {
-              xScaleOriginal.range([0, event.detail.width]);
-              yScaleOriginal.range([event.detail.height, 0]);
-            })
-            .call(zoom)
-            .call(pointer)
-        );
-    }
-
-    redraw();
-  });
+const zoom = buildZoom();
 
 const annotations = [];
 
-const pointer = fc.pointer().on("point", ([coord]) => {
-  annotations.pop();
-  if (!coord || !quadtree) {
-    return;
-  }
-  // find the closes datapoint to the pointer
-  // const x = xScale.invert(coord.x);
-  // const y = yScale.invert(coord.y);
-  // const radius = 0.5;
-  // const closestDatum = quadtree.find(x, y, radius);
-  //   if (closestDatum) {
-  //     annotations[0] = createAnnotationData(closestDatum);
-  //   }
-  redraw();
-});
+function buildFcPointer() {
+  return fc.pointer().on("point", ([coord]) => {
+    annotations.pop();
+    if (!coord || !quadtree) {
+      return;
+    }
+    // find the closes datapoint to the pointer
+    const x = xScale.invert(coord.x);
+    const y = yScale.invert(coord.y);
+    const radius = 0.5;
+    const closestDatum = quadtree.find(x, y, radius);
+    // if (closestDatum) {
+    //   annotations[0] = createAnnotationData(closestDatum);
+    // }
+    redraw();
+  });
+}
+
+const pointer = buildFcPointer();
 
 // const annotationSeries = seriesSvgAnnotation()
 //   .notePadding(15)
 //   .type(d3.annotationCallout);
 
-let pointSeries = fc
-  .seriesWebglPoint()
-  .equals((prevData, data) => prevData === data)
-  .size((d) => Math.max(d.articles_no / 10, 1))
-  .crossValue((d) => d.x)
-  .mainValue((d) => d.y)
-  .decorate((program) => {
-    fc
-      .webglFillColor()
-      .value((d) => [0.1, 0, 0.4, 0.5])
-      .data(data)(program);
+function pointDecorateProgram(data, program) {
+  fc
+    .webglFillColor()
+    .value((_) => [0.1, 0, 0.4, 0.5])
+    .data(data)(program);
 
-    fc
-      .webglStrokeColor()
-      .value((d) => [0.1, 0, 0.4, 0.7])
-      .data(data)(program);
+  fc
+    .webglStrokeColor()
+    .value((_) => [0.1, 0, 0.4, 0.7])
+    .data(data)(program);
+}
 
-    // program
-    //   .fragmentShader()
-    //   .appendHeader(
-    //     "precision mediump float; uniform vec4 fill; uniform vec4 stroke;"
-    //   ).appendBody(`
-    //     vec2 d = gl_PointCoord.xy - 0.5;
-    //     vec4 col = vec4(0.0, 0.0, 0.0, 0.6 - 0.6 * smoothstep(0.4, 0.5, length(d)));
-    //     gl_FragColor = col;
-    // `);
+function pointDecorateShaderProgram(data, program) {
+  program
+    .fragmentShader()
+    .appendHeader(
+      "precision mediump float; uniform vec4 fill; uniform vec4 stroke;"
+    ).appendBody(`
+      vec2 d = gl_PointCoord.xy - 0.5;
+      vec4 col = vec4(0.0, 0.0, 0.0, 0.6 - 0.6 * smoothstep(0.4, 0.5, length(d)));
+      gl_FragColor = col;
+  `);
+}
 
-    const gl = program.context();
-    gl.enable(gl.BLEND);
-    gl.blendFuncSeparate(
-      gl.SRC_ALPHA,
-      gl.ONE_MINUS_DST_ALPHA,
-      gl.ONE,
-      gl.ONE_MINUS_SRC_ALPHA
-    );
-  });
-
-let chart = fc
-  .chartCartesian(xScale, yScale)
-  .webglPlotArea(
-    // only render the point series on the WebGL layer
-    fc
-      .seriesWebglMulti()
-      .series([pointSeries])
-      .mapping((d) => d.data)
-  )
-  .svgPlotArea(
-    // only render the annotations series on the SVG layer
-    fc.seriesSvgMulti()
-    //   .series([pointSeriesOverlay])
-    //   .mapping((d) => d.data)
-    //       .series([annotationSeries])
-    //       .mapping((d) => d.annotations)
-  )
-  .decorate((sel) =>
-    sel
-      .enter()
-      .select("d3fc-svg.plot-area")
-      .on("measure.range", (event) => {
-        xScaleOriginal.range([0, event.detail.width]);
-        yScaleOriginal.range([event.detail.height, 0]);
-      })
-      .call(zoom)
-      .call(pointer)
+function shaderProgramSetBlend(program) {
+  const gl = program.context();
+  gl.enable(gl.BLEND);
+  gl.blendFuncSeparate(
+    gl.SRC_ALPHA,
+    gl.ONE_MINUS_DST_ALPHA,
+    gl.ONE,
+    gl.ONE_MINUS_SRC_ALPHA
   );
+}
+
+function pointDataToSize(pointData, k = 1.0) {
+  k = Math.max(0.5, Math.min(k, 3.0));
+  return Math.max(
+    50,
+    Math.min(1000 * k * (pointData.articles_no / 1000), 10000)
+  );
+  k * 100; // * pointData.articles_no;
+}
+
+function buildFcPointSeries(k = 1.0) {
+  return fc
+    .seriesWebglPoint()
+    .equals((a, b) => a === b)
+    .size((pointData) => pointDataToSize(pointData, k))
+    .crossValue((pointData) => pointData.x)
+    .mainValue((pointData) => pointData.y)
+    .decorate((program) => {
+      pointDecorateProgram(data, program);
+      // pointDecorateShaderProgram(data, program);
+      shaderProgramSetBlend(program);
+    });
+}
+
+let pointSeries = buildFcPointSeries();
+
+function buildChart(
+  xScale,
+  yScale,
+  xScaleOriginal,
+  yScaleOriginal,
+  pointSeries,
+  zoom,
+  pointer
+) {
+  return fc
+    .chartCartesian(xScale, yScale)
+    .webglPlotArea(
+      // only render the point series on the WebGL layer
+      fc
+        .seriesWebglMulti()
+        .series([pointSeries])
+        .mapping((d) => d.data)
+    )
+    .svgPlotArea(
+      // only render the annotations series on the SVG layer
+      fc.seriesSvgMulti()
+      //   .series([pointSeriesOverlay])
+      //   .mapping((d) => d.data)
+      //       .series([annotationSeries])
+      //       .mapping((d) => d.annotations)
+    )
+    .decorate((sel) =>
+      sel
+        .enter()
+        .select("d3fc-svg.plot-area")
+        .on("measure.range", (event) => {
+          xScaleOriginal.range([0, event.detail.width]);
+          yScaleOriginal.range([event.detail.height, 0]);
+        })
+        .call(zoom)
+        .call(pointer)
+    );
+}
+
+let chart = buildChart(
+  xScale,
+  yScale,
+  xScaleOriginal,
+  yScaleOriginal,
+  pointSeries,
+  zoom,
+  pointer
+);
 
 // render the chart with the required data
 // Enqueues a redraw to occur on the next animation frame
-const redraw = () => {
+function redraw() {
   d3.select("#chart").datum({ annotations, data }).call(chart);
-};
-
-class Chart {
-  constructor() {}
-
-  redraw() {}
 }
