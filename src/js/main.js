@@ -86,8 +86,6 @@ streamingLoaderWorker.onmessage = ({
   data = data.concat(rows);
 
   if (finished) {
-    console.log(data);
-
     document.getElementById("loading").style.display = "none";
 
     // compute the fill color for each datapoint
@@ -116,7 +114,6 @@ streamingLoaderWorker.onmessage = ({
       .addAll(data);
   }
 
-  console.log(items.length);
   redraw();
 };
 
@@ -227,7 +224,7 @@ function shaderProgramSetBlend(program) {
 function pointDataToSize(pointData, k = 1.0) {
   k = Math.max(0.5, Math.min(k, 3.0));
   return Math.max(
-    50,
+    100,
     Math.min(1000 * k * (pointData.numRecentArticles / 1000), 10000)
   );
 }
@@ -257,34 +254,61 @@ function buildChart(
   zoom,
   pointer
 ) {
-  return fc
-    .chartCartesian(xScale, yScale)
-    .webglPlotArea(
-      // only render the point series on the WebGL layer
-      fc
-        .seriesWebglMulti()
-        .series([pointSeries])
-        .mapping((d) => d.data)
-    )
-    .svgPlotArea(
-      // only render the annotations series on the SVG layer
-      fc.seriesSvgMulti()
-      //   .series([pointSeriesOverlay])
-      //   .mapping((d) => d.data)
-      //       .series([annotationSeries])
-      //       .mapping((d) => d.annotations)
-    )
-    .decorate((sel) =>
-      sel
-        .enter()
-        .select("d3fc-svg.plot-area")
-        .on("measure.range", (event) => {
-          xScaleOriginal.range([0, event.detail.width]);
-          yScaleOriginal.range([event.detail.height, 0]);
-        })
-        .call(zoom)
-        .call(pointer)
-    );
+  const axis = fc.axisBottom(xScale).decorate((s) => {
+    console.log(s.enter().style("dupa", "2137"));
+    // s.enter().style();
+    // .select("path")
+    // .style("fill", (d) => (d >= 100 ? "red" : "black"));
+  });
+
+  return (
+    fc
+      // .chart()
+      .chartCartesian(xScale, yScale)
+      // .axisBottom(d3.axisBottom(xScale))
+      .webglPlotArea(
+        // only render the point series on the WebGL layer
+        fc
+          .seriesWebglMulti()
+          .series([pointSeries])
+          .mapping((d) => d.data)
+      )
+      .svgPlotArea(
+        // only render the annotations series on the SVG layer
+        fc.seriesSvgMulti()
+        //   .series([pointSeriesOverlay])
+        //   .mapping((d) => d.data)
+        //       .series([annotationSeries])
+        //       .mapping((d) => d.annotations)
+      )
+      .decorate((sel) =>
+        sel
+          .enter()
+          .select("d3fc-svg.plot-area")
+          .on("measure.range", (event) => {
+            xScaleOriginal.range([0, event.detail.width]);
+            yScaleOriginal.range([event.detail.height, 0]);
+            axisHide();
+          })
+          .call(zoom)
+          .call(pointer)
+      )
+  );
+}
+
+function axisHide() {
+  /**
+   * Hides d3fc axis. Probably the easiest way to acheve that.
+   * An alternative is to use pure CSS and add !important tag.
+   */
+  d3.select("#chart")
+    .select("d3fc-svg.x-axis")
+    .style("height", "0")
+    .style("width", "0");
+  d3.select("#chart")
+    .select("d3fc-svg.y-axis")
+    .style("height", "0")
+    .style("width", "0");
 }
 
 let chart = buildChart(
