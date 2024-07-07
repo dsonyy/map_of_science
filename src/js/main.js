@@ -15,18 +15,6 @@ import {
 let data = [];
 let quadtree;
 
-// const createAnnotationData = (datapoint) => ({
-//   note: {
-//     label: "dupa",
-//     bgPadding: 5,
-//     title: "dupa2",
-//   },
-//   x: datapoint.x,
-//   y: datapoint.y,
-//   dx: 20,
-//   dy: 20,
-// });
-
 // create a web worker that streams the chart data
 const streamingLoaderWorker = new Worker(
   new URL("./streaming-tsv-parser.js", import.meta.url).href
@@ -81,7 +69,7 @@ streamingLoaderWorker.onmessage = ({
   data: { items, totalBytes, finished },
 }) => {
   const rows = items.map((d) => ({
-    clusterId: Number(d["clusterId"]),
+    clusterId: Number(d["cluster_id"]),
     x: Number(d["x"]),
     y: Number(d["y"]),
     numRecentArticles: Number(d["num_recent_articles"]),
@@ -114,7 +102,15 @@ const yScaleOriginal = yScale.copy();
 
 function buildAnnotationData(pointData) {
   return {
-    title: pointData.clusterId,
+    note: {
+      label: clusterCategoryIdToText(pointData.clusterCategoryId),
+      bgPadding: 10,
+      title: "#" + pointData.clusterId,
+    },
+    x: pointData.x,
+    y: pointData.y,
+    dx: 20,
+    dy: 20,
   };
 }
 
@@ -148,6 +144,7 @@ function buildZoom() {
 const zoom = buildZoom();
 
 const annotations = [];
+
 function buildFcPointer() {
   return fc.pointer().on("point", ([coord]) => {
     annotations.pop();
@@ -157,9 +154,12 @@ function buildFcPointer() {
     }
 
     // find the closes datapoint to the pointer
-    const x = xScale.invert(coord.x);
+    const x = xScale.invert(coord.x) - 5;
     const y = yScale.invert(coord.y);
-    const radius = 0.5;
+    const radius = Math.abs(
+      xScale.invert(coord.x) - xScale.invert(coord.x + 20)
+    );
+
     const closestDatum = quadtree.find(x, y, radius);
 
     if (closestDatum) {
@@ -171,10 +171,9 @@ function buildFcPointer() {
 }
 const pointer = buildFcPointer();
 
-const annotationSeries = buildAnnotationSeries();
-console.log("annotationSeries:", annotationSeries);
-//   .notePadding(15)
-//   .type(d3.annotationCallout);
+const annotationSeries = buildAnnotationSeries()
+  .notePadding(15)
+  .type(d3SvgAnnotation.annotationCallout);
 
 function pointDecorateProgram(data, program) {
   fc
@@ -239,27 +238,27 @@ function buildAnnotationSeries() {
 
       join(d3.select(group[index]), projectedData).call(d3Annotation);
     });
+  };
 
-    series.xScale = (...args) => {
-      if (!args.length) {
-        return xScale;
-      }
-      xScale = args[0];
-      return series;
-    };
-
-    series.yScale = (...args) => {
-      if (!args.length) {
-        return yScale;
-      }
-      yScale = args[0];
-      return series;
-    };
-
-    fc.rebindAll(series, d3Annotation);
-
+  series.xScale = (...args) => {
+    if (!args.length) {
+      return xScale;
+    }
+    xScale = args[0];
     return series;
   };
+
+  series.yScale = (...args) => {
+    if (!args.length) {
+      return yScale;
+    }
+    yScale = args[0];
+    return series;
+  };
+
+  fc.rebindAll(series, d3Annotation);
+
+  return series;
 }
 
 function buildFcPointSeries(k = 1.0) {
@@ -287,41 +286,34 @@ function buildChart(
   zoom,
   pointer
 ) {
-  return (
-    fc
-      // .chart()
-      .chartCartesian(xScale, yScale)
-      // .axisBottom(d3.axisBottom(xScale))
-      .webglPlotArea(
-        // only render the point series on the WebGL layer
-        fc
-          .seriesWebglMulti()
-          .series([pointSeries])
-          .mapping((d) => d.data)
-      )
-      .svgPlotArea(
-        // fca.annotationSvgGridline().xScale(xScale).yScale(yScale)
-
-        // only render the annotations series on the SVG layer
-        fc.seriesSvgMulti()
-        // .series([annotationSeries])
-        // .mapping((d) => d.annotations)
-        //       .series([annotationSeries])
-        //       .mapping((d) => d.annotations)
-      )
-      .decorate((sel) =>
-        sel
-          .enter()
-          .select("d3fc-svg.plot-area")
-          .on("measure.range", (event) => {
-            xScaleOriginal.range([0, event.detail.width]);
-            yScaleOriginal.range([event.detail.height, 0]);
-            axisHide();
-          })
-          .call(zoom)
-          .call(pointer)
-      )
-  );
+  return fc
+    .chartCartesian(xScale, yScale)
+    .webglPlotArea(
+      // only render the point series on the WebGL layer
+      fc
+        .seriesWebglMulti()
+        .series([pointSeries])
+        .mapping((d) => d.data)
+    )
+    .svgPlotArea(
+      // only render the annotations series on the SVG layer
+      fc
+        .seriesSvgMulti()
+        .series([annotationSeries])
+        .mapping((d) => d.annotations)
+    )
+    .decorate((sel) =>
+      sel
+        .enter()
+        .select("d3fc-svg.plot-area")
+        .on("measure.range", (event) => {
+          xScaleOriginal.range([0, event.detail.width]);
+          yScaleOriginal.range([event.detail.height, 0]);
+          axisHide();
+        })
+        .call(zoom)
+        .call(pointer)
+    );
 }
 
 function axisHide() {
