@@ -6,9 +6,7 @@ const path = require("path");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const foreground0Svg = fs.readFileSync(__dirname + "/src/foreground-0.svg");
-const foreground1Svg = fs.readFileSync(__dirname + "/src/foreground-1.svg");
-const foreground2Svg = fs.readFileSync(__dirname + "/src/foreground-2.svg");
+const foregroundSvg = fs.readFileSync(__dirname + "/asset/foreground.svg");
 
 module.exports = {
   mode: "development",
@@ -25,15 +23,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      foreground0Svg: foreground0Svg,
-      foreground1Svg: foreground1Svg,
-      foreground2Svg: foreground2Svg,
+      foregroundSvg: foregroundSvg,
     }),
   ],
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|tsv)$/i,
         type: "asset/resource",
       },
       {

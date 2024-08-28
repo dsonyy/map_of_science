@@ -83,27 +83,7 @@
         display: none;
       }
 
-      #chart-foreground-0 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      #chart-foreground-1 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      #chart-foreground-2 {
+      #foreground {
         position: absolute;
         left: 0;
         top: 0;
@@ -183,14 +163,8 @@
       <!-- d3 plane -->
       <div id="chart-d3"></div>
       <!-- custom svg plane -->
-      <div id="chart-foreground-0">
-        <%= htmlWebpackPlugin.options.foreground0Svg %>
-      </div>
-      <div id="chart-foreground-1">
-        <%= htmlWebpackPlugin.options.foreground1Svg %>
-      </div>
-      <div id="chart-foreground-2">
-        <%= htmlWebpackPlugin.options.foreground2Svg %>
+      <div id="foreground">
+        <%= htmlWebpackPlugin.options.foregroundSvg %>
       </div>
       <!-- annotation -->
       <div id="annotation">
