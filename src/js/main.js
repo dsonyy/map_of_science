@@ -546,13 +546,15 @@ function setForegroundLayerVisibility(layer, visibility) {
   layer.style.opacity = visibility;
 }
 
-function calcForegroundLayerVisibility(k, kStart, kStop, radius) {
-  if (kStart < k && k <= kStop) {
+function calcForegroundLayerVisibility(k, kStart, kStop, kRadius) {
+  if (k <= kStart) {
+    return 0.0;
+  } else if (kStart < k && k <= kStart + kRadius) {
+    return (k - kStart) / kRadius;
+  } else if (kStart + kRadius < k && k <= kStop - kRadius) {
     return 1.0;
-  } else if (kStart - radius < k && k < -kStart) {
-    return (kStart - k) / radius;
-  } else if (kStop < k && k <= kStop + radius) {
-    return (k - kStop) / radius;
+  } else if (kStop - kRadius < k && k <= kStop) {
+    return (kStop - k) / kRadius;
   } else {
     return 0.0;
   }
@@ -563,8 +565,8 @@ function updateForegroundVisibility(kZoom) {
     return;
   }
 
-  const min = -20.0;
-  const max = zoomMax;
+  const min = -10.0;
+  const max = zoomMax * 0.8;
   const layers = getForegroundLayers();
   const no = layers.length;
   const layerZoomRange = (max - min) / no;
@@ -573,11 +575,12 @@ function updateForegroundVisibility(kZoom) {
     const layerMinZoom = min + index * layerZoomRange;
     const layerMaxZoom = min + (index + 1) * layerZoomRange;
 
+    const radius = 1.0;
     const visibility = calcForegroundLayerVisibility(
       kZoom,
       layerMinZoom,
-      layerMaxZoom,
-      10.0
+      index == no - 1 ? zoomMax + radius : layerMaxZoom,
+      radius
     );
     console.log(index, visibility);
     setForegroundLayerVisibility(layer, visibility);
