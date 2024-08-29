@@ -2,10 +2,6 @@ import * as d3 from "d3";
 import Foreground from "../../asset/foreground.svg";
 import { zoomMax } from "./params";
 
-function selectForegroundSvg() {
-  return d3.select("#chart").select("#foreground").select("svg");
-}
-
 export function initForeground(xScale, yScale) {
   selectForegroundSvg()
     .attr("width", "100%")
@@ -21,6 +17,10 @@ export function updateForeground(xScale, yScale, kZoom) {
   updateForegroundVisibility(kZoom);
 }
 
+function selectForegroundSvg() {
+  return d3.select("#chart").select("#foreground").select("svg");
+}
+
 function setForegroundLayerVisibility(layer, visibility) {
   layer.style.opacity = visibility;
 }
@@ -28,12 +28,10 @@ function setForegroundLayerVisibility(layer, visibility) {
 function calcForegroundLayerVisibility(k, kStart, kStop, kRadius) {
   if (k <= kStart) {
     return 0.0;
-  } else if (kStart < k && k <= kStart + kRadius) {
-    return (k - kStart) / kRadius;
-  } else if (kStart + kRadius < k && k <= kStop - kRadius) {
+  } else if (kStart < k && k <= kStop) {
     return 1.0;
-  } else if (kStop - kRadius < k && k <= kStop) {
-    return (kStop - k) / kRadius;
+  } else if (kStop < k && k <= kStop + kRadius) {
+    return 1.0 - (k - kStop) / kRadius;
   } else {
     return 0.0;
   }
@@ -54,7 +52,7 @@ function updateForegroundVisibility(kZoom) {
     const layerMinZoom = min + index * layerZoomRange;
     const layerMaxZoom = min + (index + 1) * layerZoomRange;
 
-    const radius = 1.0;
+    const radius = 10.0;
     const visibility = calcForegroundLayerVisibility(
       kZoom,
       layerMinZoom,
