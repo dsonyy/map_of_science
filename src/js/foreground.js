@@ -17,7 +17,7 @@ export function updateForeground(xScale, yScale, kZoom) {
   updateForegroundVisibility(kZoom);
 }
 
-function selectForegroundSvg() {
+export function selectForegroundSvg() {
   return d3.select("#chart").select("#foreground").select("svg");
 }
 
@@ -59,7 +59,6 @@ function updateForegroundVisibility(kZoom) {
       index == no - 1 ? zoomMax + radius : layerMaxZoom,
       radius
     );
-    console.log(index, visibility);
     setForegroundLayerVisibility(layer, visibility);
   });
 }
@@ -68,7 +67,7 @@ function sortForegroundLayers(layers) {
   return layers.sort((a, b) => a.id.localeCompare(b.id));
 }
 
-function getForegroundLayers() {
+export function getForegroundLayers() {
   const layers = selectForegroundSvg()
     .selectAll(":scope > g")
     .filter(function () {
