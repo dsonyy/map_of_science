@@ -1,6 +1,7 @@
 import * as d3 from "d3";
 import Foreground from "../../asset/foreground.svg";
 import { zoomMax } from "./params";
+import * as labels from "./labels";
 
 export function initForeground(xScale, yScale) {
   selectForegroundSvg()
@@ -10,11 +11,14 @@ export function initForeground(xScale, yScale) {
 
   const initialZoom = 1.0;
   updateForeground(xScale, yScale, initialZoom);
+
+  labels.initLabels();
 }
 
 export function updateForeground(xScale, yScale, kZoom) {
   updateForegroundScaling(xScale, yScale);
   updateForegroundVisibility(kZoom);
+  labels.updateLabels(kZoom);
 }
 
 export function selectForegroundSvg() {
