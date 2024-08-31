@@ -141,11 +141,33 @@
         cursor: pointer;
       }
 
-      #labels {
+      .label {
         text-anchor: middle;
         fill: #ffffff; 
         text-shadow: 0px 1px 2px rgba(1.0, 1.0, 1.0, 1.0);
         font-weight: normal;
+      }
+
+      #labels0 {
+        fill: red;
+      }
+
+      #labels1 {
+        fill: blue;
+      }
+
+      #labels2 {
+        fill: green;
+      }
+
+      #foreground-labels {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
       }
     </style>
   </head>

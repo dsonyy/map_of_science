@@ -3,7 +3,7 @@ import Foreground from "../../asset/foreground.svg";
 import { zoomMax } from "./params";
 import * as labels from "./labels";
 
-export function initForeground(xScale, yScale) {
+export function initForeground(xScale, yScale, kZoom) {
   selectForegroundSvg()
     .attr("width", "100%")
     .attr("height", "100%")
@@ -12,13 +12,13 @@ export function initForeground(xScale, yScale) {
   const initialZoom = 1.0;
   updateForeground(xScale, yScale, initialZoom);
 
-  labels.initLabels();
+  labels.initLabels(xScale, yScale, kZoom);
 }
 
 export function updateForeground(xScale, yScale, kZoom) {
   updateForegroundScaling(xScale, yScale);
   updateForegroundVisibility(kZoom);
-  labels.updateLabels(kZoom);
+  labels.updateLabels(xScale, yScale, kZoom);
 }
 
 export function selectForegroundSvg() {
