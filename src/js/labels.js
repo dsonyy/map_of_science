@@ -15,7 +15,7 @@ function buildLabelsSvgLayer(layer_no) {
   selectLabelsSvg()
     .append("g")
     .attr("id", "labels" + layer_no)
-    .attr("class", "label");
+    .attr("class", "label noselect");
 }
 
 function getLabelsSvgLayer(layer_no) {
@@ -31,7 +31,8 @@ export function initLabels(xScale, yScale, kZoom) {
 
     getLabelsFromSvgGroup(layer).forEach((label) => {
       labelsSvgLayer
-        .append("text")
+        .append("div")
+        .attr("class", "label")
         .attr("x", label.x)
         .attr("y", label.y)
         .text(label.html);
@@ -44,23 +45,28 @@ export function initLabels(xScale, yScale, kZoom) {
 export function updateLabels(xScale, yScale, kZoom) {
   getForegroundLayers().forEach((_, layer_no) => {
     selectLabelsSvgLayer(layer_no)
-      .selectAll("text")
-      .style("font-size", function (d, i) {
-        return (
-          LABEL_TEXT_SIZE / kZoom +
-          (1.0 * LABEL_TEXT_SIZE) / kZoom / (layer_no + 1) +
-          "px"
-        );
+      .selectAll(".label")
+      .each((_, index, labels) => {
+        const label = d3.select(labels[index]);
+        const x = label.attr("x");
+        const y = label.attr("y");
+        const xMoved = xScale(x);
+        const yMoved = yScale(y);
+        label.style("left", xMoved + "px").style("top", yMoved + "px");
       });
+    // .style("left", "100px")
+    // .style("top", "100px");
+
+    // .style("font-size", function (d, i) {
+    //   return (
+    //     LABEL_TEXT_SIZE / kZoom +
+    //     (1.0 * LABEL_TEXT_SIZE) / kZoom / (layer_no + 1) +
+    //     "px"
+    //   );
+    // })
   });
 
-  // selectLabelsSvg()
-  //   .selectAll("text")
-  //   .style("font-size", function (d, i) {
-  //     console.log(d, i);
-  //     return LABEL_TEXT_SIZE / kZoom + "px";
-  //   });
-  updateLabelsScaling(xScale, yScale);
+  updateLabelsScaling(xScale, yScale, kZoom);
 }
 
 export function getLabelsFromSvgGroup(svgGroup) {
@@ -73,7 +79,7 @@ export function getLabelsFromSvgGroup(svgGroup) {
   return labels;
 }
 
-function updateLabelsScaling(xScale, yScale) {
+function updateLabelsScaling(xScale, yScale, kZoom) {
   const width = xScale.domain()[1] - xScale.domain()[0];
   const height = yScale.domain()[1] - yScale.domain()[0];
   const x = xScale.domain()[0];
@@ -86,11 +92,11 @@ function updateLabelsScaling(xScale, yScale) {
 }
 
 function buildLabelsSvg() {
-  d3.select("#chart").append("svg").attr("id", "foreground-labels");
+  d3.select("#chart").append("div").attr("id", "ff");
 }
 
 function selectLabelsSvg() {
-  return d3.select("#chart").select("#foreground-labels");
+  return d3.select("#chart").select("#ff");
 }
 
 function selectLabelsSvgLayer(layer_no) {
