@@ -15,7 +15,7 @@ function buildLabelsSvgLayer(layer_no) {
   selectLabelsSvg()
     .append("g")
     .attr("id", "labels" + layer_no)
-    .attr("class", "label noselect");
+    .attr("class", "noselect");
 }
 
 function getLabelsSvgLayer(layer_no) {
@@ -51,22 +51,10 @@ export function updateLabels(xScale, yScale, kZoom) {
         const x = label.attr("x");
         const y = label.attr("y");
         const xMoved = xScale(x);
-        const yMoved = yScale(y);
+        const yMoved = yScale(-y);
         label.style("left", xMoved + "px").style("top", yMoved + "px");
       });
-    // .style("left", "100px")
-    // .style("top", "100px");
-
-    // .style("font-size", function (d, i) {
-    //   return (
-    //     LABEL_TEXT_SIZE / kZoom +
-    //     (1.0 * LABEL_TEXT_SIZE) / kZoom / (layer_no + 1) +
-    //     "px"
-    //   );
-    // })
   });
-
-  updateLabelsScaling(xScale, yScale, kZoom);
 }
 
 export function getLabelsFromSvgGroup(svgGroup) {
@@ -77,18 +65,6 @@ export function getLabelsFromSvgGroup(svgGroup) {
       labels.push(getLabelFromSvgElement(nodes[index]));
     });
   return labels;
-}
-
-function updateLabelsScaling(xScale, yScale, kZoom) {
-  const width = xScale.domain()[1] - xScale.domain()[0];
-  const height = yScale.domain()[1] - yScale.domain()[0];
-  const x = xScale.domain()[0];
-  const y = yScale.domain()[0];
-
-  // we need to convert to the SVG coordinate system
-  const y_prim = -y - height;
-
-  selectLabelsSvg().attr("viewBox", `${x} ${y_prim} ${width} ${height}`);
 }
 
 function buildLabelsSvg() {
@@ -107,7 +83,9 @@ function getLabelTextFromSvgElement(svgElement) {
   const element = d3.select(svgElement);
   const inkscapeLabel = element.attr(":inkscape:label");
   const id = element.attr("id");
-  return inkscapeLabel ?? id;
+  const text = inkscapeLabel ?? id;
+  if (text[0] == "#") return text.slice(1);
+  return "";
 }
 
 function getLabelFromSvgElement(svgElement) {
