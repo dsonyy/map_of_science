@@ -42,15 +42,25 @@ function calcForegroundLayerVisibility(k, kStart, kStop, kRadius) {
 }
 
 function updateForegroundVisibility(kZoom) {
+  const layers = getForegroundLayers();
+  getForegroundVisibilities(kZoom).forEach((visibility, index) => {
+    setForegroundLayerVisibility(layers[index], visibility);
+  });
+}
+
+export function getForegroundVisibilities(kZoom) {
   if (kZoom == null || kZoom <= 0) {
     return;
   }
 
+  const layers = getForegroundLayers();
+
   const min = -10.0;
   const max = zoomMax * 0.8;
-  const layers = getForegroundLayers();
   const no = layers.length;
   const layerZoomRange = (max - min) / no;
+
+  const visibilities = [];
 
   layers.forEach((layer, index) => {
     const layerMinZoom = min + index * layerZoomRange;
@@ -63,8 +73,9 @@ function updateForegroundVisibility(kZoom) {
       index == no - 1 ? zoomMax + radius : layerMaxZoom,
       radius
     );
-    setForegroundLayerVisibility(layer, visibility);
+    visibilities[index] = visibility;
   });
+  return visibilities;
 }
 
 function sortForegroundLayers(layers) {

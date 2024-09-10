@@ -174,7 +174,7 @@ function initChart(dataPoints) {
   updateScaleRanges(width, height);
 
   // foreground init
-  foreground.initForeground(xScale, yScale);
+  foreground.initForeground(xScale, yScale, d3.zoomIdentity.k);
 
   const svg = buildChart();
   // Create a group for all plot elements

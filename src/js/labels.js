@@ -1,7 +1,5 @@
 import * as d3 from "d3";
-import { selectForegroundSvg, getForegroundLayers } from "./foreground";
-
-const LABEL_TEXT_SIZE = 18;
+import { getForegroundLayers, getForegroundVisibilities } from "./foreground";
 
 class Label {
   constructor(html, x, y) {
@@ -9,17 +7,6 @@ class Label {
     this.x = x;
     this.y = y;
   }
-}
-
-function buildLabelsSvgLayer(layer_no) {
-  selectLabelsSvg()
-    .append("g")
-    .attr("id", "labels" + layer_no)
-    .attr("class", "noselect");
-}
-
-function getLabelsSvgLayer(layer_no) {
-  return selectLabelsSvg().select("#" + "labels" + layer_no);
 }
 
 export function initLabels(xScale, yScale, kZoom) {
@@ -43,6 +30,8 @@ export function initLabels(xScale, yScale, kZoom) {
 }
 
 export function updateLabels(xScale, yScale, kZoom) {
+  const visibilities = getForegroundVisibilities(kZoom);
+
   getForegroundLayers().forEach((_, layer_no) => {
     selectLabelsSvgLayer(layer_no)
       .selectAll(".label")
@@ -52,7 +41,10 @@ export function updateLabels(xScale, yScale, kZoom) {
         const y = label.attr("y");
         const xMoved = xScale(x);
         const yMoved = yScale(-y);
-        label.style("left", xMoved + "px").style("top", yMoved + "px");
+        label
+          .style("left", xMoved + "px")
+          .style("top", yMoved + "px")
+          .style("opacity", visibilities[layer_no]);
       });
   });
 }
@@ -65,6 +57,17 @@ export function getLabelsFromSvgGroup(svgGroup) {
       labels.push(getLabelFromSvgElement(nodes[index]));
     });
   return labels;
+}
+
+function buildLabelsSvgLayer(layer_no) {
+  selectLabelsSvg()
+    .append("g")
+    .attr("id", "labels" + layer_no)
+    .attr("class", "noselect");
+}
+
+function getLabelsSvgLayer(layer_no) {
+  return selectLabelsSvg().select("#" + "labels" + layer_no);
 }
 
 function buildLabelsSvg() {
