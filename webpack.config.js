@@ -3,8 +3,8 @@
 let fs = require("fs");
 
 const path = require("path");
-const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const foregroundSvg = fs.readFileSync(__dirname + "/asset/foreground.svg");
 
@@ -25,6 +25,9 @@ module.exports = {
       template: "./src/index.html",
       foregroundSvg: foregroundSvg,
     }),
+    new MiniCssExtractPlugin({
+      filename: "./src/styles.css",
+    }),
   ],
   module: {
     rules: [
@@ -33,30 +36,8 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(scss)$/,
-        use: [
-          {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: "style-loader",
-          },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: "css-loader",
-          },
-          {
-            // Loader for webpack to process CSS with PostCSS
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [autoprefixer],
-              },
-            },
-          },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: "sass-loader",
-          },
-        ],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
