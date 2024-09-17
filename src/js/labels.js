@@ -107,12 +107,9 @@ function handleClickLabel(label) {
 }
 
 function handleHoverInLabel(selection) {
-  console.log("Label hovered:", selection);
   selection.classed("label-hover", true);
 }
 
 function handleHoverOutLabel(selection) {
-  console.log("Label hover out:", selection);
   selection.classed("label-hover", false);
-  // d3.select(label).classed("label-hover", false);
 }
