@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import { getForegroundLayers, getForegroundVisibilities } from "./foreground";
+import * as article from "arti";
 
 class Label {
   constructor(html, x, y) {
