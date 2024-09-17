@@ -412,15 +412,23 @@ function handleZoom(event) {
 }
 
 function handleResize() {
+  // update scales
   const width = document.getElementById("chart-d3").clientWidth;
   const height = document.getElementById("chart-d3").clientHeight;
   updateGlobalScaleDomains(width, height);
   transformLocalScaleDomains(zoomTransform);
   updateScaleRanges(width, height);
+
   d3.select("svg").attr("width", width).attr("height", height);
 
   const _data = getDataPointsToRender(data, xScale, yScale);
   renderChart(_data);
+
+  // update annotation
+  updateAnnotation(null, xScale, yScale);
+
+  // update foreground
+  foreground.updateForeground(xScale, yScale, zoomTransform.k);
 }
 
 function disableArticle() {
