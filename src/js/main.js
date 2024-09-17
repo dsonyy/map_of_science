@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import * as foreground from "./foreground";
 import * as params from "./params";
-import * as zoom from "./zoom";
+import "../styles.css";
 
 let data = [];
 let concepts = {};

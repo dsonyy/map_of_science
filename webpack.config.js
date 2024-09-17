@@ -26,7 +26,7 @@ module.exports = {
       foregroundSvg: foregroundSvg,
     }),
     new MiniCssExtractPlugin({
-      filename: "./src/styles.css",
+      filename: "styles.css",
     }),
   ],
   module: {
