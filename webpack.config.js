@@ -5,6 +5,7 @@ let fs = require("fs");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const foregroundSvg = fs.readFileSync(__dirname + "/asset/foreground.svg");
 
@@ -28,6 +29,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "styles.css",
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "articles", to: "articles" }, // Copy articles directory to dist/articles
+      ],
+    }),
   ],
   module: {
     rules: [
@@ -41,4 +47,5 @@ module.exports = {
       },
     ],
   },
+  watch: true,
 };

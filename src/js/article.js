@@ -41,11 +41,49 @@ function buildArticleContent(dataPoint, url) {
   return html;
 }
 
+function labelTextToLabelId(labelText) {
+  return labelText
+    .toLowerCase() // Convert to lowercase
+    .replace(/[^a-z0-9]+/g, "_") // Replace non-alphanumeric characters with underscores
+    .replace(/^_+|_+$/g, ""); // Trim leading and trailing underscores
+}
+
+function labelTextToArticleUri(labelText) {
+  const labelId = labelTextToLabelId(labelText);
+  return `../../articles/${labelId}.html`; // Assuming the HTML files are in the 'articles' directory
+}
+
+async function fetchArticle(labelText) {
+  const articleUri = labelTextToArticleUri(labelText);
+  try {
+    const response = await fetch(articleUri);
+    if (response.ok) {
+      const content = await response.text();
+      return content;
+    }
+    return "<p>Content not found.</p>";
+  } catch (error) {
+    console.error("Error fetching article content:", error);
+    return "<p>Error loading content.</p>";
+  }
+}
+
 function buildLabelArticle(labelText) {
   const article = document.getElementById("article-content");
 
+  // wait for fetchArticle
+  fetchArticle(labelText).then((content) => {
+    article.innerHTML =
+      "<h1>" +
+      labelText +
+      "</h1>" +
+      "<h2>" +
+      labelTextToLabelId(labelText) +
+      "</h2>" +
+      content;
+  });
+
   console.log(labelText);
-  article.innerHTML = "<h1>" + labelText + "</h1>";
 
   const articleClose = document.getElementById("article-close");
   articleClose.onclick = () => {
