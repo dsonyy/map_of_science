@@ -118,7 +118,7 @@ function loadData(url, parseItem, dataTarget, onLoaded) {
 
 function loadDataPoints() {
   loadData(
-    new URL("./processed1_data.tsv", import.meta.url),
+    new URL("../../asset/data.tsv", import.meta.url),
     parseDataPointItem,
     data, // Separate array for data points
     handleDataPointsLoaded
@@ -127,7 +127,7 @@ function loadDataPoints() {
 
 function loadConcepts() {
   loadData(
-    new URL("./processed0_keys.tsv", import.meta.url),
+    new URL("../../asset/keys.tsv", import.meta.url),
     parseConceptItem,
     [], // We don't need to store the concepts in an array, they go to the `concepts` object
     handleConceptsLoaded
