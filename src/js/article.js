@@ -40,3 +40,26 @@ function buildArticleContent(dataPoint, url) {
 
   return html;
 }
+
+function buildLabelArticle(labelText) {
+  const article = document.getElementById("article-content");
+
+  console.log(labelText);
+  article.innerHTML = "<h1>" + labelText + "</h1>";
+
+  const articleClose = document.getElementById("article-close");
+  articleClose.onclick = () => {
+    disableArticle();
+  };
+
+  const articleOpen = document.getElementById("article-open");
+  articleOpen.onclick = () => {
+    window.open("", "_blank");
+  };
+}
+
+export function enableLabelArticle(labelText) {
+  const article = document.getElementById("article");
+  buildLabelArticle(labelText);
+  article.style.visibility = "visible";
+}
