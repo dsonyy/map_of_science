@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Bai Jamjuree", sans-serif;
+  font-family: sans-serif;
   height: 100%;
   overflow: hidden;
 }
@@ -143,14 +143,13 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.label:hover {
+.label-hover {
   cursor: pointer;
-  color: lightpink;
+  color: rgb(170, 170, 170);
 }
 
 #labels0 {
   font-size: x-large;
-  font-style: italic;
   color: white;
   text-shadow: 0px 1px 2px rgba(1, 1, 1, 1);
 }
@@ -169,7 +168,6 @@ body {
 
 #labels3 {
   color: cornflowerblue;
-  font-style: italic;
   font-size: small;
   text-shadow: none !important;
 }

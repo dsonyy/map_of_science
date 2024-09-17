@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import Foreground from "../../asset/foreground.svg";
-import { zoomMax } from "./params";
+import { zoomMax } from "./zoom";
 import * as labels from "./labels";
 
 export function initForeground(xScale, yScale, kZoom) {

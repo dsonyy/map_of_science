@@ -10,15 +10,14 @@ class Label {
 }
 
 export function initLabels(xScale, yScale, kZoom) {
-  buildLabelsSvg();
+  buildLabelsDiv();
 
   getForegroundLayers().forEach((layer, layer_no) => {
-    buildLabelsSvgLayer(layer_no);
-    const labelsSvgLayer = getLabelsSvgLayer(layer_no);
+    buildLabelsDivLayer(layer_no);
+    const LabelsDivLayer = getLabelsDivLayer(layer_no);
 
     getLabelsFromSvgGroup(layer).forEach((label) => {
-      labelsSvgLayer
-        .append("div")
+      LabelsDivLayer.append("div")
         .attr("class", "label")
         .attr("x", label.x)
         .attr("y", label.y)
@@ -33,7 +32,7 @@ export function updateLabels(xScale, yScale, kZoom) {
   const visibilities = getForegroundVisibilities(kZoom);
 
   getForegroundLayers().forEach((_, layer_no) => {
-    selectLabelsSvgLayer(layer_no)
+    selectLabelsDivLayer(layer_no)
       .selectAll(".label")
       .each((_, index, labels) => {
         const label = d3.select(labels[index]);
@@ -44,7 +43,10 @@ export function updateLabels(xScale, yScale, kZoom) {
         label
           .style("left", xMoved + "px")
           .style("top", yMoved + "px")
-          .style("opacity", visibilities[layer_no]);
+          .style("opacity", visibilities[layer_no])
+          .on("click", () => handleClickLabel(label))
+          .on("mouseover", () => handleHoverInLabel(label))
+          .on("mouseout", () => handleHoverOutLabel(label));
       });
   });
 }
@@ -59,27 +61,27 @@ export function getLabelsFromSvgGroup(svgGroup) {
   return labels;
 }
 
-function buildLabelsSvgLayer(layer_no) {
-  selectLabelsSvg()
+function buildLabelsDivLayer(layer_no) {
+  selectLabelsDiv()
     .append("g")
     .attr("id", "labels" + layer_no)
     .attr("class", "noselect");
 }
 
-function getLabelsSvgLayer(layer_no) {
-  return selectLabelsSvg().select("#" + "labels" + layer_no);
+function getLabelsDivLayer(layer_no) {
+  return selectLabelsDiv().select("#" + "labels" + layer_no);
 }
 
-function buildLabelsSvg() {
+function buildLabelsDiv() {
   d3.select("#chart").append("div").attr("id", "ff");
 }
 
-function selectLabelsSvg() {
+function selectLabelsDiv() {
   return d3.select("#chart").select("#ff");
 }
 
-function selectLabelsSvgLayer(layer_no) {
-  return selectLabelsSvg().select("#labels" + layer_no);
+function selectLabelsDivLayer(layer_no) {
+  return selectLabelsDiv().select("#labels" + layer_no);
 }
 
 function getLabelTextFromSvgElement(svgElement) {
@@ -98,4 +100,19 @@ function getLabelFromSvgElement(svgElement) {
     bbox.x + bbox.width / 2,
     bbox.y + bbox.height / 2
   );
+}
+
+function handleClickLabel(label) {
+  console.log(label);
+}
+
+function handleHoverInLabel(selection) {
+  console.log("Label hovered:", selection);
+  selection.classed("label-hover", true);
+}
+
+function handleHoverOutLabel(selection) {
+  console.log("Label hover out:", selection);
+  selection.classed("label-hover", false);
+  // d3.select(label).classed("label-hover", false);
 }
