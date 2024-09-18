@@ -3,12 +3,11 @@
 let fs = require("fs");
 
 const path = require("path");
-const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const foreground0Svg = fs.readFileSync(__dirname + "/src/foreground-0.svg");
-const foreground1Svg = fs.readFileSync(__dirname + "/src/foreground-1.svg");
-const foreground2Svg = fs.readFileSync(__dirname + "/src/foreground-2.svg");
+const foregroundSvg = fs.readFileSync(__dirname + "/asset/foreground.svg");
 
 module.exports = {
   mode: "development",
@@ -25,43 +24,28 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      foreground0Svg: foreground0Svg,
-      foreground1Svg: foreground1Svg,
-      foreground2Svg: foreground2Svg,
+      foregroundSvg: foregroundSvg,
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "articles", to: "articles" }, // Copy articles directory to dist/articles
+      ],
     }),
   ],
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|tsv)$/i,
         type: "asset/resource",
       },
       {
-        test: /\.(scss)$/,
-        use: [
-          {
-            // Adds CSS to the DOM by injecting a `<style>` tag
-            loader: "style-loader",
-          },
-          {
-            // Interprets `@import` and `url()` like `import/require()` and will resolve them
-            loader: "css-loader",
-          },
-          {
-            // Loader for webpack to process CSS with PostCSS
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [autoprefixer],
-              },
-            },
-          },
-          {
-            // Loads a SASS/SCSS file and compiles it to CSS
-            loader: "sass-loader",
-          },
-        ],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
+  watch: true,
 };
