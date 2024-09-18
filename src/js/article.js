@@ -73,14 +73,7 @@ function buildLabelArticle(labelText) {
 
   // wait for fetchArticle
   fetchArticle(labelText).then((content) => {
-    article.innerHTML =
-      "<h1>" +
-      labelText +
-      "</h1>" +
-      "<h2>" +
-      labelTextToLabelId(labelText) +
-      "</h2>" +
-      content;
+    article.innerHTML = content;
   });
 
   console.log(labelText);
