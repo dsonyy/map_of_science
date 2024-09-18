@@ -45,6 +45,7 @@ export function updateLabels(xScale, yScale, kZoom) {
           .style("left", xMoved + "px")
           .style("top", yMoved + "px")
           .style("opacity", visibilities[layer_no])
+          .style("display", visibilities[layer_no] == 0 ? "none" : "block")
           .on("click", () => handleClickLabel(labels[index]))
           .on("mouseover", () => handleHoverInLabel(label))
           .on("mouseout", () => handleHoverOutLabel(label));

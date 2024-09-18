@@ -53,7 +53,7 @@ export function getForegroundVisibilities(kZoom) {
     return;
   }
 
-  const layerZoomThresholds = [0.0, 1.0, 4.0];
+  const layerZoomThresholds = [0.0, 0.8, 4.0];
   const layerZoomRadiuses = [1.0, 1.0, 3.0];
 
   const layers = getForegroundLayers();
@@ -78,7 +78,6 @@ export function getForegroundVisibilities(kZoom) {
 
 function sortForegroundLayers(layers) {
   const sorted = layers.sort((a, b) => a.id.localeCompare(b.id));
-  console.log(sorted);
   return sorted;
 }
 
