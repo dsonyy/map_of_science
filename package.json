@@ -18,7 +18,7 @@
     "csv-loader": "^3.0.5",
     "html-webpack-plugin": "^5.6.0",
     "postcss-loader": "^8.1.1",
-    "sass": "^1.77.6",
+    "sass": "^1.79.5",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.92.1",
