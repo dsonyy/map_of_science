@@ -32,10 +32,10 @@ function setForegroundLayerVisibility(layer, visibility) {
 function calcForegroundLayerVisibility(k, kStart, kStop, kRadius) {
   if (k <= kStart) {
     return 0.0;
-  } else if (kStart < k && k <= kStop) {
+  } else if (k <= kStart + kRadius) {
+    return 1.0 - (kStart + kRadius - k) / kRadius;
+  } else if (k <= kStop) {
     return 1.0;
-  } else if (kStop < k && k <= kStop + kRadius) {
-    return 1.0 - (k - kStop) / kRadius;
   } else {
     return 0.0;
   }
@@ -53,33 +53,32 @@ export function getForegroundVisibilities(kZoom) {
     return;
   }
 
-  const layers = getForegroundLayers();
+  const layerZoomThresholds = [0.0, 0.8, 4.0];
+  const layerZoomRadiuses = [1.0, 1.0, 3.0];
 
-  const min = -10.0;
-  const max = zoomMax * 0.8;
-  const no = layers.length;
-  const layerZoomRange = (max - min) / no;
+  const layers = getForegroundLayers();
 
   const visibilities = [];
 
-  layers.forEach((layer, index) => {
-    const layerMinZoom = min + index * layerZoomRange;
-    const layerMaxZoom = min + (index + 1) * layerZoomRange;
-
-    const radius = 10.0;
+  layers.forEach((_layer, index) => {
+    const layerMinZoom = layerZoomThresholds[index];
+    const layerMaxZoom = Infinity;
+    const radius = layerZoomRadiuses[index];
     const visibility = calcForegroundLayerVisibility(
       kZoom,
       layerMinZoom,
-      index == no - 1 ? zoomMax + radius : layerMaxZoom,
+      layerMaxZoom,
       radius
     );
     visibilities[index] = visibility;
   });
+
   return visibilities;
 }
 
 function sortForegroundLayers(layers) {
-  return layers.sort((a, b) => a.id.localeCompare(b.id));
+  const sorted = layers.sort((a, b) => a.id.localeCompare(b.id));
+  return sorted;
 }
 
 export function getForegroundLayers() {
