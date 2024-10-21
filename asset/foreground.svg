@@ -40,13 +40,13 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="0.85531266"
-     inkscape:cx="15.19912"
-     inkscape:cy="39.751545"
+     inkscape:zoom="0.86064046"
+     inkscape:cx="11.619254"
+     inkscape:cy="70.877449"
      inkscape:window-width="1920"
-     inkscape:window-height="1098"
+     inkscape:window-height="978"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="434"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2" />
   <defs
@@ -487,7 +487,8 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        d="m -4.86014,455.17319 c -3.4407728,0.91528 -5.903386,0.81789 -9.635147,2.09296 -2.798958,0.95586 -5.054191,1.6466 -7.83129,2.89192 -3.566185,1.5988 -14.235504,5.40644 -16.518059,8.98729 -2.897594,4.54617 -2.473816,10.25019 -2.937212,16.21932 -0.695914,8.9661 5.862675,11.156 9.806462,12.20699 5.064573,1.34947 6.998214,2.1642 12.427548,2.1642 4.439151,0 5.814586,-0.3377 10.1605667,-1.15739 2.09512,-0.39497 14.8918002,-7.81817 16.1328063,-9.8922 4.151168,-6.93806 3.279841,-7.99852 3.279841,-17.66303 0,-10.00131 -5.0902564,-13.10738 -10.1829717,-15.12054 -0.21557768,-0.0852 -4.6563686,-0.74169 -4.7025443,-0.72952 z"
        id="path54"
        style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       transform="translate(-2.5085414e-4,3.2311744e-4)" />
+       transform="translate(-2.5085414e-4,3.2311744e-4)"
+       inkscape:label="#Zażółć gęślą jaźń" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -638,7 +639,7 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        sodipodi:cx="98.933502"
        sodipodi:cy="69.62336"
        sodipodi:r1="191.9395"
-       sodipodi:r2="95.11056"
+       sodipodi:r2="95.110558"
        sodipodi:arg1="0.77186911"
        sodipodi:arg2="-0.046359498"
        inkscape:rounded="0"

@@ -45,8 +45,7 @@ function buildArticleContent(dataPoint, url) {
 function labelTextToLabelId(labelText) {
   return labelText
     .toLowerCase() // Convert to lowercase
-    .replace(/[^a-z0-9]+/g, "_") // Replace non-alphanumeric characters with underscores
-    .replace(/^_+|_+$/g, ""); // Trim leading and trailing underscores
+    .replace(/[^a-z0-9]/g, "_"); // Replace non-alphanumeric characters with underscores
 }
 
 function labelTextToArticleUri(labelText) {
