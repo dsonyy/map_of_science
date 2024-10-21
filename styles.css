@@ -1,0 +1,209 @@
+#annotation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#annotation-connection {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#annotation-body {
+  position: absolute;
+  top: 33px;
+  left: 33px;
+  z-index: 3;
+  display: inline-table;
+  height: auto;
+  white-space: nowrap;
+}
+
+.few-articles {
+  color: darkred;
+}
+
+.many-articles {
+  color: green;
+}
+
+#article {
+  overflow: scroll;
+  visibility: hidden;
+  position: absolute;
+  z-index: 30;
+  width: 40vw;
+  height: 90vh;
+  right: 5vw;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#article-content {
+  height: 100%;
+  width: 100%;
+}
+
+#chart {
+  z-index: 5;
+  position: relative; /* for annotation */
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+}
+/**
+      * d3fc enforces some styles that we need to override here because they don't match our styles.
+      */
+/* disabling d3fc axis and labels */
+#chart d3fc-svg.x-axis {
+  height: 0;
+}
+#chart d3fc-svg.y-axis {
+  width: 0;
+}
+
+#chart .chart-label,
+#chart .x-label,
+#chart .y-label {
+  display: none;
+}
+/* below removes empty space around plots and keeps them overlaying */
+#chart d3fc-group.cartesian-chart {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+#chart .plot-area {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+/* d3 */
+#chart-d3 {
+  /* position: absolute; */
+  /* left: 0;
+      top: 0; */
+  width: 100%;
+  height: 100vh;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+
+#debug {
+  z-index: 20;
+  white-space: nowrap;
+  position: absolute;
+  top: 20px;
+  left: 220px;
+  font-size: x-small;
+  display: none;
+}
+
+#foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.city-shape {
+  cursor: pointer;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.content {
+  background-color: #ffffffdd;
+  padding: 8px;
+  border-radius: 4px;
+  border: #70707070 1px solid;
+  box-shadow: 10px;
+  box-shadow: 3px 3px 5px #33333344;
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-anchor: middle;
+  width: max-content;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.03em;
+
+  /* hack to make the shadow stronger */
+  text-shadow: 0 0 1px #f2efe9, 0 0 2px #f2efe9, 0 0 5px #f2efe9,
+    0 0 5px #f2efe9, 0 0 5px #f2efe9, 0 0 5px #f2efe9, 0 0 5px #f2efe9,
+    0 0 5px #f2efe9, 0 0 5px #f2efe9;
+
+  /* Smooth transition for hover effects */
+  transition: color 0.1s ease;
+}
+
+#labels0 {
+  color: rgb(153, 91, 153);
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#labels1 {
+  color: rgb(57, 57, 57);
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.label-hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+}
+
+#ff {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: visiblePainted;
+}
+
