@@ -1,0 +1,43 @@
+#chart {
+  z-index: 5;
+  position: relative; /* for annotation */
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+}
+/**
+      * d3fc enforces some styles that we need to override here because they don't match our styles.
+      */
+/* disabling d3fc axis and labels */
+#chart d3fc-svg.x-axis {
+  height: 0;
+}
+#chart d3fc-svg.y-axis {
+  width: 0;
+}
+
+#chart .chart-label,
+#chart .x-label,
+#chart .y-label {
+  display: none;
+}
+/* below removes empty space around plots and keeps them overlaying */
+#chart d3fc-group.cartesian-chart {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+#chart .plot-area {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+/* d3 */
+#chart-d3 {
+  /* position: absolute; */
+  /* left: 0;
+      top: 0; */
+  width: 100%;
+  height: 100vh;
+}

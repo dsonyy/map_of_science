@@ -1,0 +1,25 @@
+.few-articles {
+  color: darkred;
+}
+
+.many-articles {
+  color: green;
+}
+
+#article {
+  overflow: scroll;
+  visibility: hidden;
+  position: absolute;
+  z-index: 30;
+  width: 40vw;
+  height: 90vh;
+  right: 5vw;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#article-content {
+  height: 100%;
+  width: 100%;
+}

@@ -35,3 +35,10 @@
   cursor: pointer;
   color: rgb(255, 0, 0);
 }
+
+#ff {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: visiblePainted;
+}

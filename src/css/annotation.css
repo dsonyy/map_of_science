@@ -1,0 +1,24 @@
+#annotation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#annotation-connection {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#annotation-body {
+  position: absolute;
+  top: 33px;
+  left: 33px;
+  z-index: 3;
+  display: inline-table;
+  height: auto;
+  white-space: nowrap;
+}
