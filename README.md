@@ -4,7 +4,7 @@ Discover the landscape of human knowledge through an interactive map.
 
 Navigate continents of scientific fields, dive into countries of subfields, and discover cities - whose size reflects the volume of research on each topic. The proximity of areas on the map mirrors how closely related the fields are.
 
-[**👉 LIVE DEMO HERE**](dsonyy.github.io/map_of_science/)
+[**👉 LIVE DEMO HERE**](https://dsonyy.github.io/map_of_science/)
 
 
 ## Installation
