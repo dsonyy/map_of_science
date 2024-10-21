@@ -2,6 +2,14 @@ import * as d3 from "d3";
 import Foreground from "../../asset/foreground.svg";
 import { zoomMax } from "./zoom";
 import * as labels from "./labels";
+import {
+  LAYER_ZOOM_THRESHOLD_0,
+  LAYER_ZOOM_THRESHOLD_1,
+  LAYER_ZOOM_THRESHOLD_2,
+  LAYER_ZOOM_RADIUS_0,
+  LAYER_ZOOM_RADIUS_1,
+  LAYER_ZOOM_RADIUS_2,
+} from "./config";
 
 export function initForeground(xScale, yScale, kZoom) {
   selectForegroundSvg()
@@ -53,8 +61,16 @@ export function getForegroundVisibilities(kZoom) {
     return;
   }
 
-  const layerZoomThresholds = [0.0, 0.8, 4.0];
-  const layerZoomRadiuses = [1.0, 1.0, 3.0];
+  const layerZoomThresholds = [
+    LAYER_ZOOM_THRESHOLD_0,
+    LAYER_ZOOM_THRESHOLD_1,
+    LAYER_ZOOM_THRESHOLD_2,
+  ];
+  const layerZoomRadiuses = [
+    LAYER_ZOOM_RADIUS_0,
+    LAYER_ZOOM_RADIUS_1,
+    LAYER_ZOOM_RADIUS_2,
+  ];
 
   const layers = getForegroundLayers();
 

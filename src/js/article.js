@@ -1,4 +1,5 @@
 import * as points from "./points";
+import { PATH_TO_ARTICLES } from "./config";
 
 export function disableArticle() {
   const article = document.getElementById("article");
@@ -50,7 +51,7 @@ function labelTextToLabelId(labelText) {
 
 function labelTextToArticleUri(labelText) {
   const labelId = labelTextToLabelId(labelText);
-  return `../../articles/${labelId}.html`; // Assuming the HTML files are in the 'articles' directory
+  return PATH_TO_ARTICLES + `${labelId}.html`; // Assuming the HTML files are in the 'articles' directory
 }
 
 async function fetchArticle(labelText) {

@@ -2,6 +2,13 @@ import * as d3 from "d3";
 import * as zoom from "./zoom";
 import * as foreground from "./foreground";
 import * as article from "./article";
+import {
+  CITY_SIZE_THRESHOLD_0,
+  CITY_SIZE_THRESHOLD_1,
+  CITY_SIZE_THRESHOLD_2,
+  CITY_SIZE_THRESHOLD_3,
+  CITY_SIZE_THRESHOLD_4,
+} from "./config";
 
 let plotGroup = null;
 
@@ -71,7 +78,7 @@ export function renderChart(data) {
         article.enableArticle(d);
       });
 
-    if (d.numRecentArticles <= 50) {
+    if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_0) {
       group
         .append("circle")
         .attr("cx", zoom.xScale(d.x))
@@ -80,7 +87,7 @@ export function renderChart(data) {
         .style("fill", "white")
         .style("stroke", "black")
         .style("stroke-width", 1);
-    } else if (d.numRecentArticles <= 200) {
+    } else if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_1) {
       group
         .append("circle")
         .attr("cx", zoom.xScale(d.x))
@@ -89,7 +96,7 @@ export function renderChart(data) {
         .style("fill", "white")
         .style("stroke", "black")
         .style("stroke-width", 1);
-    } else if (d.numRecentArticles <= 500) {
+    } else if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_2) {
       group
         .append("circle")
         .attr("cx", zoom.xScale(d.x))
@@ -107,7 +114,7 @@ export function renderChart(data) {
         .style("fill", "black")
         .style("stroke", "black")
         .style("stroke-width", 1);
-    } else if (d.numRecentArticles <= 1000) {
+    } else if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_3) {
       group
         .append("circle")
         .attr("cx", zoom.xScale(d.x))
@@ -125,7 +132,7 @@ export function renderChart(data) {
         .style("fill", "white")
         .style("stroke", "black")
         .style("stroke-width", 1);
-    } else if (d.numRecentArticles > 1000) {
+    } else if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_4) {
       group
         .append("circle")
         .attr("cx", zoom.xScale(d.x))
@@ -149,35 +156,10 @@ export function renderChart(data) {
   // UPDATE phase for existing data points
   shapes.each(function (d) {
     const group = d3.select(this);
-
-    if (d.numRecentArticles <= 50) {
-      group
-        .selectAll("circle")
-        .attr("cx", zoom.xScale(d.x))
-        .attr("cy", zoom.yScale(d.y));
-    } else if (d.numRecentArticles <= 200) {
-      group
-        .selectAll("circle")
-        .attr("cx", zoom.xScale(d.x))
-        .attr("cy", zoom.yScale(d.y));
-    } else if (d.numRecentArticles <= 500) {
-      // two circles
-      group
-        .selectAll("circle")
-        .attr("cx", zoom.xScale(d.x))
-        .attr("cy", zoom.yScale(d.y));
-      //   group.select("circle").attr("cx", xScale(d.x)).attr("cy", yScale(d.y));
-    } else if (d.numRecentArticles <= 1000) {
-      group
-        .selectAll("circle")
-        .attr("cx", zoom.xScale(d.x))
-        .attr("cy", zoom.yScale(d.y));
-    } else if (d.numRecentArticles > 1000) {
-      group
-        .selectAll("circle")
-        .attr("cx", zoom.xScale(d.x))
-        .attr("cy", zoom.yScale(d.y));
-    }
+    group
+      .selectAll("circle")
+      .attr("cx", zoom.xScale(d.x))
+      .attr("cy", zoom.yScale(d.y));
   });
 
   // EXIT phase for removed data points
