@@ -1,5 +1,5 @@
 // Article configuration
-export const PATH_TO_ARTICLES = "../articles/";
+export const PATH_TO_ARTICLES = "articles/";
 
 // Chart configurations
 export const CITY_SIZE_THRESHOLD_0 = 50;
