@@ -133,47 +133,6 @@ body {
   cursor: pointer;
 }
 
-.label {
-  position: absolute;
-  left: 0;
-  top: 0;
-  text-anchor: middle;
-  font-weight: bold;
-  width: max-content;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-
-.label-hover {
-  cursor: pointer;
-  color: rgb(170, 170, 170);
-}
-
-#labels0 {
-  font-size: large;
-  color: blue;
-  text-shadow: 0px 1px 2px rgba(1, 1, 1, 1);
-  text-transform: uppercase;
-}
-
-#labels1 {
-  font-size: medium;
-  color: white;
-  text-shadow: 0px 1px 2px rgba(1, 1, 1, 1);
-}
-
-#labels2 {
-  font-size: small;
-  color: white;
-  text-shadow: 0px 1px 2px rgba(1, 1, 1, 1);
-}
-
-#labels3 {
-  color: cornflowerblue;
-  font-size: small;
-  text-shadow: none !important;
-}
-
 #ff {
   position: absolute;
   left: 0;
