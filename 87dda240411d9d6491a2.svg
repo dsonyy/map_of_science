@@ -40,15 +40,15 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="1.2171294"
-     inkscape:cx="-188.96922"
-     inkscape:cy="-12.734882"
+     inkscape:zoom="3.4425618"
+     inkscape:cx="-203.91791"
+     inkscape:cy="7.116793"
      inkscape:window-width="3840"
      inkscape:window-height="2050"
      inkscape:window-x="-12"
      inkscape:window-y="-12"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <rect
@@ -190,10 +190,11 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Tekst i tłumaczenie" />
     <path
        class="fil0"
-       d="m -85.5444,94.883599 c -3.02574,-3.68951 -12.54749,-11.518503 -16.44511,-11.946835 -5.62551,-0.6186 -9.00999,-0.559986 -13.86282,4.950157 -4.50909,5.119686 -6.60831,19.535959 -6.27525,28.016919 0.39291,10.00267 9.83843,22.38775 15.69892,22.29442 5.13589,-0.0816 4.32331,-0.42157 8.90044,-1.96897 8.47829,-2.86621 7.22691,-4.64266 11.15293,-15.25987 2.33638,-6.31856 3.93395,-16.4141 2.36835,-23.566782 -0.0883,-0.402181 -1.43281,-2.391441 -1.53746,-2.519039 z"
+       d="m -88.237452,91.966754 c -2.637727,-3.133942 -10.938435,-9.784042 -14.336238,-10.147876 -4.90411,-0.525451 -7.85457,-0.475663 -12.08509,4.204761 -3.93085,4.348761 -5.76088,16.594221 -5.47053,23.798121 0.34253,8.49646 5.23771,9.07129 10.34666,8.99201 12.137719,-0.70404 15.552467,-4.1048 21.089451,-10.22869 2.036769,-5.36711 3.160879,-8.40298 1.796047,-14.478605 -0.07698,-0.34162 -1.24907,-2.031337 -1.3403,-2.139721 z"
        id="path5"
-       style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       inkscape:label="#Filozofia" />
+       style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.172104;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       inkscape:label="#Filozofia"
+       sodipodi:nodetypes="cccccccc" />
     <path
        class="fil0"
        d="m 131.23959,22.578128 c -3.02574,-3.68951 -12.5475,-11.518504 -16.44511,-11.946835 -5.62551,-0.6186 -9.01,-0.559987 -13.86282,4.950157 -4.509096,5.119685 -6.608315,19.535963 -6.275249,28.016921 0.392904,10.002662 9.838429,22.387748 15.698919,22.294417 5.13589,-0.08161 4.3233,-0.421569 8.90043,-1.968972 8.4783,-2.866212 7.22691,-4.642659 11.15294,-15.259864 2.33638,-6.318562 3.93395,-16.414104 2.36835,-23.566785 -0.0882,-0.402181 -1.43281,-2.391441 -1.53746,-2.519039 z"
@@ -502,7 +503,7 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Nauka jakaś poziomu trzeciego" />
     <path
        sodipodi:type="star"
-       style="fill:#800000;stroke-width:13.994;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:#800000;stroke-width:13.994;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers;image-rendering:auto"
        id="path7"
        inkscape:flatsided="false"
        sodipodi:sides="4"
