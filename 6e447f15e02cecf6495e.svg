@@ -40,9 +40,9 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="9.737035"
-     inkscape:cx="-111.63563"
-     inkscape:cy="-437.55619"
+     inkscape:zoom="6.8851235"
+     inkscape:cx="-78.865688"
+     inkscape:cy="-256.85814"
      inkscape:window-width="3360"
      inkscape:window-height="1780"
      inkscape:window-x="6708"
@@ -113,7 +113,7 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Obliczanie" />
     <path
        style="clip-rule:evenodd;display:inline;fill:#a3d293;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       d="m -332.02921,3.4387411 c -18.74308,-36.3022901 -33.88528,-95.1733701 23.95167,-145.1349611 l 47.16973,-31.72729 c 22.40127,-2.71519 38.0301,-4.7556 58.60161,2.72558 l 48.52124,39.04205 69.825523,35.157211 c 0,0 7.75298,8.692 14.21049,17.53389 6.4575,8.84189 13.97315,19.24089 19.91458,33.67001 5.94142,14.42912 9.69933,29.25972 11.92158,37.4621301 2.22225,8.20241002 4.46437,22.3314099 7.53552,35.3024199 3.07114,12.97101 2.22242,14.25625 3.7579,26.62886 1.53549,12.37261 3.35065,24.35691 4.03741,34.17579 0.68676,9.81888 22.11142972,41.848199 16.7175997,61.367759 -5.3938297,19.51955 -7.8966297,45.59248 -31.2777797,34.20578 -75.664503,-36.84884 -172.235093,7.61863 -201.114573,52.57393 -24.6677,38.39902 -84.21558,50.99161 -89.94072,13.82419 0,0 -3.32165,-55.0951 -4.14711,-58.6748 -19.35753,-83.94612 28.04205,-143.624809 0.31533,-188.1325489 z"
+       d="m -332.02921,3.4387411 c 1.38625,-37.9455011 -30.59886,-109.1406611 27.23809,-159.1022511 l 31.35383,-24.12744 c 18.29324,-7.85022 50.55958,1.61184 71.13109,9.09302 l 48.52124,39.04205 69.825523,35.157211 c 0,0 7.75298,8.692 14.21049,17.53389 6.4575,8.84189 13.97315,19.24089 19.91458,33.67001 5.94142,14.42912 9.69933,29.25972 11.92158,37.4621301 2.22225,8.20241002 4.46437,22.3314099 7.53552,35.3024199 3.07114,12.97101 2.22242,14.25625 3.7579,26.62886 1.53549,12.37261 3.35065,24.35691 4.03741,34.17579 0.68676,9.81888 22.11142972,41.848199 16.7175997,61.367759 -5.3938297,19.51955 -7.8966297,45.59248 -31.2777797,34.20578 -75.664503,-36.84884 -172.235093,7.61863 -201.114573,52.57393 -24.6677,38.39902 -84.21558,50.99161 -89.94072,13.82419 0,0 -3.32165,-55.0951 -4.14711,-58.6748 -19.35753,-83.94612 28.04205,-143.624809 0.31533,-188.1325489 z"
        id="path187"
        sodipodi:nodetypes="ccccccssssssssscsc"
        inkscape:label="#Społeczeństwo" />
@@ -137,7 +137,7 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        sodipodi:nodetypes="csssssscssssssssssssssscssssc" />
     <path
        style="clip-rule:evenodd;display:inline;fill:#a3d293;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       d="m 20.188323,-222.22676 c 0,0 -26.3749303,6.53312 -50.05605,10.61496 -23.68113,4.08184 -37.71678,5.77756 -50.42497,16.98899 -12.7082,11.21144 -27.928743,27.18649 -21.637063,46.61123 6.291693,19.42474 0.62858,15.76116 10.740463,28.09344 10.11188,12.33229 39.82899,23.437411 58.63018,41.381331 18.80119,17.94391 21.01607,17.76828 32.95223972,39.93948 17.56693028,32.6302301 -8.01986002,80.212 5.44948998,94.21704 13.5094703,14.04676 19.6061603,14.73352 19.6061603,14.73352 0,0 33.96922,1.55746 43.84628,1.55746 9.87706,0 10.74557,-2.22225 22.86786,-2.22225 12.122267,0 15.216047,-0.70974 24.591327,-9.23608 9.3752,-8.52634 35.1995,-37.21239 44.0799,-46.7796 8.8804,-9.5672099 3.4674,-20.6480399 5.5579,-35.29202 2.0904,-14.64399 2.0964,-18.28771 -0.4411,-32.63074 -2.5374,-14.34302 -4.2349,-18.94647 -5.7705,-30.66199 -1.5355,-11.71553 -6.1029,-19.740461 -3.2331,-29.561851 2.8698,-9.8214 0.2851,-24.16836 5.0925,-32.4095 4.8073,-8.24114 7.8868,-14.34948 8.7271,-20.72617 0.8403,-6.37669 3.3867,-7.06345 -1.382,-21.5313 -4.7687,-14.46786 -6.4023,-19.32197 -13.7559,-27.52438 -7.3536,-8.2024 -11.5642,-13.33526 -22.9273,-16.2545 -11.3632,-2.91924 -40.502277,-5.24955 -49.880197,-5.24955 -9.37792,0 -17.09317,2.1219 -23.0512,5.115 -5.95803,2.99309 -39.58202,10.82748 -39.58202,10.82748 z"
+       d="m 20.188323,-222.22676 c 0,0 -37.532213,-3.11819 -61.558525,-3.55773 -23.886531,-0.43699 -52.505676,12.9666 -65.213868,24.17803 -12.7082,11.21144 -12.31824,27.18649 -6.02656,46.61123 6.29169,19.42474 11.30945,22.74481 21.421333,35.07709 10.11188,12.33229 39.82899,23.437411 58.63018,41.381331 18.80119,17.94391 21.01607,17.76828 32.95223972,39.93948 17.56693028,32.6302301 -8.01986002,80.212 5.44948998,94.21704 13.5094703,14.04676 19.6061603,14.73352 19.6061603,14.73352 0,0 33.96922,1.55746 43.84628,1.55746 9.87706,0 10.74557,-2.22225 22.86786,-2.22225 12.122267,0 15.216047,-0.70974 24.591327,-9.23608 9.3752,-8.52634 35.1995,-37.21239 44.0799,-46.7796 8.8804,-9.5672099 3.4674,-20.6480399 5.5579,-35.29202 2.0904,-14.64399 2.0964,-18.28771 -0.4411,-32.63074 -2.5374,-14.34302 -4.2349,-18.94647 -5.7705,-30.66199 -1.5355,-11.71553 -6.1029,-19.740461 -3.2331,-29.561851 2.8698,-9.8214 0.2851,-24.16836 5.0925,-32.4095 4.8073,-8.24114 7.8868,-14.34948 8.7271,-20.72617 0.8403,-6.37669 3.3867,-7.06345 -1.382,-21.5313 -4.7687,-14.46786 -6.4023,-19.32197 -13.7559,-27.52438 -7.3536,-8.2024 -11.5642,-13.33526 -22.9273,-16.2545 -11.3632,-2.91924 -40.502277,-5.24955 -49.880197,-5.24955 -9.37792,0 -17.09317,2.1219 -23.0512,5.115 -5.95803,2.99309 -39.58202,10.82748 -39.58202,10.82748 z"
        id="path191"
        inkscape:label="#Biologia"
        sodipodi:nodetypes="cssssssscsssssssssssssssc" />
@@ -154,10 +154,10 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Fizyka" />
     <path
        style="clip-rule:evenodd;display:inline;fill:#a3d293;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       d="m -171.79594,-341.17544 c -40.14636,73.04057 -43.80047,109.32926 13.66045,175.12833 7.82599,8.96162 26.94517,6.29319 39.22942,-1.54656 12.28425,-7.83974 10.61052,-9.0363 17.56909,-19.74439 6.958583,-10.7081 10.881563,-19.56181 27.571743,-28.08824 16.69019,-8.52642 22.75435,-9.79138 43.45093,-19.71531 20.6965697,-9.92392 25.8197897,-8.21666 39.3589297,-20.02289 13.5391503,-11.80623 16.7723503,-7.64693 20.3681203,-23.0797 3.59578,-15.43277 18.21444,-1.52149 0.52471,-35.71119 -17.68973,-34.1897 -17.0417,-37.46145 -28.4772203,-42.75485 -11.43552,-5.2934 -15.2778397,-9.37524 -29.6224597,-11.07278 -14.34462,-1.69753 -20.91329,-7.41144 -48.72303,-0.84881 -27.809743,6.56263 -84.374103,18.72784 -84.374103,18.72784 z"
+       d="m -189.46045,-264.14994 c -17.96302,28.05768 -20.03744,11.25449 -37.48449,54.55776 -19.54139,48.50138 95.75462,49.83826 108.03887,41.99851 12.28425,-7.83975 10.61052,-9.0363 17.56909,-19.74439 6.958583,-10.7081 10.881563,-19.56181 27.571743,-28.08824 16.69019,-8.52642 22.75435,-9.79138 43.45093,-19.71531 20.6965697,-9.92392 25.8197897,-8.21666 39.3589297,-20.02289 13.5391503,-11.80623 16.7723503,-7.64693 20.3681203,-23.0797 3.59578,-15.43277 18.21444,-1.52149 0.52471,-35.71119 -17.68973,-34.1897 -17.0417,-37.46145 -28.4772203,-42.75485 -11.43552,-5.2934 -15.2778397,-9.37524 -29.6224597,-11.07278 -14.34462,-1.69753 -20.91329,-7.41144 -48.72303,-0.84881 -27.809743,6.56263 -50.322383,22.30805 -70.817613,42.55439 -22.10899,21.84052 -41.75758,61.9275 -41.75758,61.9275 z"
        id="path194"
        inkscape:label="#Ziemia"
-       sodipodi:nodetypes="cssssssssssscc" />
+       sodipodi:nodetypes="cssssssssssssc" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -324,10 +324,11 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Biologia organizmów" />
     <path
        class="fil0"
-       d="m -158.76075,-244.84711 c -35.39136,-4.8992 -64.23478,-3.93253 -70.45839,25.65524 -2.09894,9.9711 0.43662,15.55564 8.5753,23.86166 7.58046,7.73656 22.71462,17.37267 35.40638,19.93769 19.36483,3.9136 30.30191,15.70984 54.45071,12.4951 8.65999,-1.15289 25.78134,-18.85739 34.805,-24.56547 5.57169,-3.52404 22.3403,-15.66701 20.14436,-22.32959 7.23264,-14.99069 0.0965,-26.00015 -20.20146,-33.13345 -11.50403,-4.04299 -55.53325,-0.92564 -62.7219,-1.92118 z"
+       d="m -158.76075,-244.84711 c -28.81852,2.28985 -52.73231,9.00775 -62.24234,22.77962 -2.09894,9.9711 -7.77943,18.43126 0.35925,26.73728 7.58046,7.73656 22.71462,17.37267 35.40638,19.93769 19.36483,3.9136 30.30191,15.70984 54.45071,12.4951 8.65999,-1.15289 25.78134,-18.85739 34.805,-24.56547 5.57169,-3.52404 22.3403,-15.66701 20.14436,-22.32959 7.23264,-14.99069 0.0965,-26.00015 -20.20146,-33.13345 -11.50403,-4.04299 -55.53325,-0.92564 -62.7219,-1.92118 z"
        id="path29"
        style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       inkscape:label="#Gleba, woda, biosfera" />
+       inkscape:label="#Gleba, woda, biosfera"
+       sodipodi:nodetypes="ccccccccc" />
     <path
        class="fil0"
        d="m 192.37977,-414.84456 c -5.64983,3.24314 -11.77399,4.90281 -16.93064,9.86965 -25.64964,24.7066 -10.2939,56.70204 2.94514,81.73417 8.98841,16.99438 20.04927,24.80714 33.01043,36.37389 8.65016,7.71988 24.55482,14.78194 34.41811,17.63011 10.0133,2.89056 19.59544,-0.6691 29.61803,2.38378 29.04206,8.84301 39.78378,1.78637 35.69108,-40.14546 -2.98803,-30.61261 -15.22596,-39.76853 -30.40683,-57.7607 -17.74541,-21.03106 -35.57852,-34.29265 -57.25459,-48.26346 -11.44721,-7.37812 -19.06182,-8.72623 -31.09073,-1.82198 z"
@@ -450,10 +451,11 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Intensywna terapia" />
     <path
        class="fil0"
-       d="m -403.59224,16.431349 c 1.40221,0.495963 2.82218,1.640283 4.82768,2.345903 11.36824,3.998359 34.53232,0.05005 43.99096,-10.8575212 7.22937,-8.336679 10.2051,-18.2960568 13.55353,-31.5612498 6.9381,-27.484438 3.03666,-45.530712 -8.16026,-67.619982 -7.16024,-14.125459 -19.65692,-29.362779 -29.77704,-37.090779 -8.98705,-6.86277 -14.70109,-1.63262 -22.85151,4.09891 -8.06354,5.6702 -15.33197,21.71865 -18.3211,35.008189 -5.17578,23.01266 -5.80912,30.563911 -2.88502,54.735771 2.11014,17.443903 5.48971,24.207028 11.73737,37.5515748 0.0279,0.05952 7.61899,13.2949512 7.88539,13.3891842 z"
+       d="m -404.85034,16.431349 c 1.31962,0.495963 2.65597,1.640283 4.54336,2.345903 10.69872,3.998359 29.21216,0.05005 38.11374,-10.8575212 6.80361,-8.336679 5.70146,-18.5014578 8.85269,-31.7666508 6.52948,-27.484438 10.04686,-45.325311 -0.49063,-67.414581 -6.73854,-14.125459 -18.49925,-29.362779 -28.02336,-37.090779 -8.45776,-6.86277 -13.83528,-1.63262 -21.50569,4.09891 -7.58865,5.6702 -14.42902,21.71865 -17.24211,35.008189 -4.87095,23.01266 -5.46699,30.563911 -2.71511,54.735771 1.98587,17.443903 5.1664,24.207028 11.04612,37.5515748 0.0263,0.05952 7.17028,13.2949512 7.42099,13.3891842 z"
        id="path50"
-       style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       inkscape:label="#Algorytmy i roboty" />
+       style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.194021;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       inkscape:label="#Algorytmy i roboty"
+       sodipodi:nodetypes="sccccsccsss" />
     <path
        class="fil0"
        d="m -331.67782,-36.587042 c 1.08717,1.543345 2.00194,3.669672 3.55798,5.873549 8.82093,12.491041 30.30356,27.3234748 41.77235,25.2192418 8.76573,-1.608271 14.26774,-8.0016788 21.05557,-17.0024958 14.06473,-18.649543 16.19975,-54.398974 12.77783,-82.636373 -2.23256,-18.42275 10.43461,-49.6472 7.06023,-60.66252 -7.98265,-26.05877 -35.45802,-13.06185 -56.59692,17.30007 -11.21906,16.11427 -19.60664,25.10878 -24.05153,48.639949 -3.20771,16.9822 -10.22806,28.63281 -8.61437,45.284077 0.007,0.07439 2.83229,17.691433 3.03886,17.984502 z"
@@ -484,109 +486,236 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      id="layer3"
      inkscape:label="L3"
      style="display:inline">
-    <rect
-       style="fill:#000000"
-       id="rect1"
-       width="6.0274882"
-       height="6.172729"
-       x="-137.18224"
-       y="-414.52368"
-       inkscape:label="#Metamateriały fotoniczne" />
-    <rect
-       style="fill:#000000"
-       id="rect2"
-       width="6.0274882"
-       height="6.172729"
-       x="-167.90228"
-       y="-412.17151"
-       inkscape:label="#Obrazowanie, hologramy, wyświetlacze" />
-    <rect
-       style="fill:#000000"
-       id="rect4"
-       width="6.0274882"
-       height="6.172729"
-       x="-99.38839"
-       y="-443.48526"
-       inkscape:label="#Lasery, sygnały wysokiej częstotliwości" />
-    <rect
-       style="fill:#000000"
-       id="rect5"
-       width="6.0274882"
-       height="6.172729"
-       x="-201.38271"
-       y="-454.89499"
-       inkscape:label="#Wiatr słoneczny i magnetosfery" />
-    <rect
-       style="fill:#000000"
-       id="rect6"
-       width="6.0274882"
-       height="6.172729"
-       x="-215.14459"
-       y="-423.98209"
-       inkscape:label="#Asteroidy i wietrzenie kosmiczne" />
-    <rect
-       style="fill:#000000"
-       id="rect8"
-       width="6.0274882"
-       height="6.172729"
-       x="-234.04152"
-       y="-450.78696"
-       inkscape:label="#Astrofizyka gwiazdowa i galaktyczna" />
-    <rect
-       style="fill:#000000"
-       id="rect9"
-       width="6.0274882"
-       height="6.172729"
-       x="-274.40289"
-       y="-434.35486"
-       inkscape:label="#Kosmologia i astronomia obserwacyjna" />
-    <rect
-       style="fill:#000000"
-       id="rect10"
-       width="6.0274882"
-       height="6.172729"
-       x="-303.36447"
-       y="-420.49026"
-       inkscape:label="#Fizyka cząstek" />
-    <rect
-       style="fill:#000000"
-       id="rect11"
-       width="6.0274882"
-       height="6.172729"
-       x="-327.29373"
-       y="-395.22589"
-       inkscape:label="#Kosmologia relatywistyczna" />
-    <rect
-       style="fill:#000000"
-       id="rect12"
-       width="6.0274882"
-       height="6.172729"
-       x="-307.36981"
-       y="-396.04749"
-       inkscape:label="#Podstawy fizyki kwantowej" />
-    <rect
-       style="fill:#000000"
-       id="rect13"
-       width="6.0274882"
-       height="6.172729"
-       x="-97.745186"
-       y="-470.39282"
-       inkscape:label="#Energetyka jądrowa" />
-    <rect
-       style="fill:#000000"
-       id="rect14"
-       width="6.0274882"
-       height="6.172729"
-       x="-117.46371"
-       y="-456.63092"
-       inkscape:label="#Wytwarzanie i manipulacja strumieniami cząstek" />
-    <rect
-       style="fill:#000000"
-       id="rect15"
-       width="6.0274882"
-       height="6.172729"
-       x="-139.23625"
-       y="-468.85229"
-       inkscape:label="#Podstawy fizyki jądrowej" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer4"
+       inkscape:label="L3-maszyny">
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect31"
+         width="6.0274882"
+         height="6.172729"
+         x="-322.79126"
+         y="-217.16087"
+         inkscape:label="#Urządzenia mechaniczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect27"
+         width="6.0274882"
+         height="6.172729"
+         x="-300.85992"
+         y="-234.00879"
+         inkscape:label="#Robotyka" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect23"
+         width="6.0274882"
+         height="6.172729"
+         x="-226.20621"
+         y="-298.49564"
+         inkscape:label="#Chłodzenie i energia cieplna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect18"
+         width="6.0274882"
+         height="6.172729"
+         x="-312.04346"
+         y="-186.36981"
+         inkscape:label="#Energia odnawialna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect24"
+         width="6.0274882"
+         height="6.172729"
+         x="-255.54483"
+         y="-281.21201"
+         inkscape:label="#Hydrodynamika: wiry, turbulencja, symulacje" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect16"
+         width="6.0274882"
+         height="6.172729"
+         x="-341.81781"
+         y="-310.11487"
+         inkscape:label="#Anteny mikrofalowe i detekcja fal elektromagnetycznych" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect19"
+         width="6.0274882"
+         height="6.172729"
+         x="-234.92065"
+         y="-322.31509"
+         inkscape:label="#Metamateriały akustyczne i mechaniczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect17"
+         width="6.0274882"
+         height="6.172729"
+         x="-352.42038"
+         y="-209.46307"
+         inkscape:label="#Sieć elektryczna, smart grid, ładowanie pojazdów elektrycznych" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect26"
+         width="6.0274882"
+         height="6.172729"
+         x="-278.20239"
+         y="-273.07852"
+         inkscape:label="#Lotnictwo" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect25"
+         width="6.0274882"
+         height="6.172729"
+         x="-232.74205"
+         y="-248.6781"
+         inkscape:label="#Aerodynamika, turbiny wiatrowe i lotnictwo" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect28"
+         width="6.0274882"
+         height="6.172729"
+         x="-320.17694"
+         y="-265.96173"
+         inkscape:label="#Energetyka: systemy dystrybucji" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect29"
+         width="6.0274882"
+         height="6.172729"
+         x="-284.30249"
+         y="-255.94012"
+         inkscape:label="#Komponenty dla robotyki: akcelerometry, MEMS" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect30"
+         width="6.0274882"
+         height="6.172729"
+         x="-309.57437"
+         y="-250.27574"
+         inkscape:label="#Technologie satelitarne" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer5"
+       inkscape:label="L3-fizyka">
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect8"
+         width="6.0274882"
+         height="6.172729"
+         x="-234.04152"
+         y="-450.78696"
+         inkscape:label="#Astrofizyka gwiazdowa i galaktyczna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect9"
+         width="6.0274882"
+         height="6.172729"
+         x="-274.40289"
+         y="-434.35486"
+         inkscape:label="#Kosmologia i astronomia obserwacyjna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect10"
+         width="6.0274882"
+         height="6.172729"
+         x="-303.36447"
+         y="-420.49026"
+         inkscape:label="#Fizyka cząstek" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect11"
+         width="6.0274882"
+         height="6.172729"
+         x="-327.29373"
+         y="-395.22589"
+         inkscape:label="#Kosmologia relatywistyczna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect1"
+         width="6.0274882"
+         height="6.172729"
+         x="-137.18224"
+         y="-414.52368"
+         inkscape:label="#Metamateriały fotoniczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect2"
+         width="6.0274882"
+         height="6.172729"
+         x="-167.90228"
+         y="-412.17151"
+         inkscape:label="#Obrazowanie, hologramy, wyświetlacze" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect4"
+         width="6.0274882"
+         height="6.172729"
+         x="-99.38839"
+         y="-443.48526"
+         inkscape:label="#Lasery, sygnały wysokiej częstotliwości" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect5"
+         width="6.0274882"
+         height="6.172729"
+         x="-201.38271"
+         y="-454.89499"
+         inkscape:label="#Wiatr słoneczny i magnetosfery" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect6"
+         width="6.0274882"
+         height="6.172729"
+         x="-215.14459"
+         y="-423.98209"
+         inkscape:label="#Asteroidy i wietrzenie kosmiczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect12"
+         width="6.0274882"
+         height="6.172729"
+         x="-307.36981"
+         y="-396.04749"
+         inkscape:label="#Podstawy fizyki kwantowej" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect13"
+         width="6.0274882"
+         height="6.172729"
+         x="-97.745186"
+         y="-470.39282"
+         inkscape:label="#Energetyka jądrowa" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect14"
+         width="6.0274882"
+         height="6.172729"
+         x="-117.46371"
+         y="-456.63092"
+         inkscape:label="#Wytwarzanie i manipulacja strumieniami cząstek" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect15"
+         width="6.0274882"
+         height="6.172729"
+         x="-139.23625"
+         y="-468.85229"
+         inkscape:label="#Podstawy fizyki jądrowej" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer6"
+       inkscape:label="L3-Ziemia">
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect32"
+         width="6.0274882"
+         height="6.172729"
+         x="-141.09517"
+         y="-290.36215"
+         inkscape:label="#Asfalt" />
+    </g>
   </g>
 </svg>
