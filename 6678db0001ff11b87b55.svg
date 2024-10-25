@@ -40,12 +40,12 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="3.4425618"
-     inkscape:cx="-203.91791"
-     inkscape:cy="7.116793"
-     inkscape:window-width="3840"
-     inkscape:window-height="2050"
-     inkscape:window-x="-12"
+     inkscape:zoom="9.737035"
+     inkscape:cx="-111.63563"
+     inkscape:cy="-437.55619"
+     inkscape:window-width="3360"
+     inkscape:window-height="1780"
+     inkscape:window-x="6708"
      inkscape:window-y="-12"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
@@ -484,39 +484,109 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      id="layer3"
      inkscape:label="L3"
      style="display:inline">
-    <path
-       sodipodi:type="star"
-       style="fill:#800000;stroke-width:13.994;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers"
-       id="path55"
-       inkscape:flatsided="false"
-       sodipodi:sides="4"
-       sodipodi:cx="-156.42445"
-       sodipodi:cy="-371.98416"
-       sodipodi:r1="95.809959"
-       sodipodi:r2="25.604126"
-       sodipodi:arg1="0.36468916"
-       sodipodi:arg2="1.1500873"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="m -66.915468,-337.81269 -79.052062,-10.80004 -44.6284,66.13755 10.80004,-79.05206 -66.13755,-44.6284 79.05206,10.80004 44.6284,-66.13755 -10.80004,79.05207 z"
-       transform="matrix(0.06373933,0,0,0.05914982,-146.45406,-349.98137)"
-       inkscape:label="#Nauka jakaś poziomu trzeciego" />
-    <path
-       sodipodi:type="star"
-       style="fill:#800000;stroke-width:13.994;stroke-linecap:square;stroke-linejoin:round;paint-order:stroke fill markers;image-rendering:auto"
-       id="path7"
-       inkscape:flatsided="false"
-       sodipodi:sides="4"
-       sodipodi:cx="-156.42445"
-       sodipodi:cy="-371.98416"
-       sodipodi:r1="95.809959"
-       sodipodi:r2="25.604126"
-       sodipodi:arg1="0.36468916"
-       sodipodi:arg2="1.1500873"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="m -66.915468,-337.81269 -79.052062,-10.80004 -44.6284,66.13755 10.80004,-79.05206 -66.13755,-44.6284 79.05206,10.80004 44.6284,-66.13755 -10.80004,79.05207 z"
-       transform="matrix(0.06373933,0,0,0.05914982,-106.4008,-400.3047)"
-       inkscape:label="#Nauka inna poziomu trzeciego" />
+    <rect
+       style="fill:#000000"
+       id="rect1"
+       width="6.0274882"
+       height="6.172729"
+       x="-137.18224"
+       y="-414.52368"
+       inkscape:label="#Metamateriały fotoniczne" />
+    <rect
+       style="fill:#000000"
+       id="rect2"
+       width="6.0274882"
+       height="6.172729"
+       x="-167.90228"
+       y="-412.17151"
+       inkscape:label="#Obrazowanie, hologramy, wyświetlacze" />
+    <rect
+       style="fill:#000000"
+       id="rect4"
+       width="6.0274882"
+       height="6.172729"
+       x="-99.38839"
+       y="-443.48526"
+       inkscape:label="#Lasery, sygnały wysokiej częstotliwości" />
+    <rect
+       style="fill:#000000"
+       id="rect5"
+       width="6.0274882"
+       height="6.172729"
+       x="-201.38271"
+       y="-454.89499"
+       inkscape:label="#Wiatr słoneczny i magnetosfery" />
+    <rect
+       style="fill:#000000"
+       id="rect6"
+       width="6.0274882"
+       height="6.172729"
+       x="-215.14459"
+       y="-423.98209"
+       inkscape:label="#Asteroidy i wietrzenie kosmiczne" />
+    <rect
+       style="fill:#000000"
+       id="rect8"
+       width="6.0274882"
+       height="6.172729"
+       x="-234.04152"
+       y="-450.78696"
+       inkscape:label="#Astrofizyka gwiazdowa i galaktyczna" />
+    <rect
+       style="fill:#000000"
+       id="rect9"
+       width="6.0274882"
+       height="6.172729"
+       x="-274.40289"
+       y="-434.35486"
+       inkscape:label="#Kosmologia i astronomia obserwacyjna" />
+    <rect
+       style="fill:#000000"
+       id="rect10"
+       width="6.0274882"
+       height="6.172729"
+       x="-303.36447"
+       y="-420.49026"
+       inkscape:label="#Fizyka cząstek" />
+    <rect
+       style="fill:#000000"
+       id="rect11"
+       width="6.0274882"
+       height="6.172729"
+       x="-327.29373"
+       y="-395.22589"
+       inkscape:label="#Kosmologia relatywistyczna" />
+    <rect
+       style="fill:#000000"
+       id="rect12"
+       width="6.0274882"
+       height="6.172729"
+       x="-307.36981"
+       y="-396.04749"
+       inkscape:label="#Podstawy fizyki kwantowej" />
+    <rect
+       style="fill:#000000"
+       id="rect13"
+       width="6.0274882"
+       height="6.172729"
+       x="-97.745186"
+       y="-470.39282"
+       inkscape:label="#Energetyka jądrowa" />
+    <rect
+       style="fill:#000000"
+       id="rect14"
+       width="6.0274882"
+       height="6.172729"
+       x="-117.46371"
+       y="-456.63092"
+       inkscape:label="#Wytwarzanie i manipulacja strumieniami cząstek" />
+    <rect
+       style="fill:#000000"
+       id="rect15"
+       width="6.0274882"
+       height="6.172729"
+       x="-139.23625"
+       y="-468.85229"
+       inkscape:label="#Podstawy fizyki jądrowej" />
   </g>
 </svg>
