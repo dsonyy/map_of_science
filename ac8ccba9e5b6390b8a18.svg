@@ -41,8 +41,8 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      borderlayer="false"
      shape-rendering="auto"
      inkscape:zoom="6.8851235"
-     inkscape:cx="-78.865688"
-     inkscape:cy="-256.85814"
+     inkscape:cx="-128.538"
+     inkscape:cy="-201.23096"
      inkscape:window-width="3360"
      inkscape:window-height="1780"
      inkscape:window-x="6708"
@@ -716,6 +716,78 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
          x="-141.09517"
          y="-290.36215"
          inkscape:label="#Asfalt" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect33"
+         width="6.0274882"
+         height="6.172729"
+         x="6.3241181"
+         y="-301.98141"
+         inkscape:label="#Wydobywanie węglowodorów" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect34"
+         width="6.0274882"
+         height="6.172729"
+         x="11.664553"
+         y="-262.85245"
+         inkscape:label="#Naturalna promieniotwórczość" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect35"
+         width="6.0274882"
+         height="6.172729"
+         x="-107.59869"
+         y="-324.47485"
+         inkscape:label="#Konstrukcje betonowe" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect36"
+         width="6.0274882"
+         height="6.172729"
+         x="-70.62645"
+         y="-340.70157"
+         inkscape:label="#Beton zbrojony i kompozytowy" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect37"
+         width="6.0274882"
+         height="6.172729"
+         x="-29.13538"
+         y="-334.53952"
+         inkscape:label="#Cement i inne składniki betonu" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect38"
+         width="6.0274882"
+         height="6.172729"
+         x="-35.577755"
+         y="-274.14954"
+         inkscape:label="#Geologia regionalna i złożowa" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect39"
+         width="6.0274882"
+         height="6.172729"
+         x="-60.225918"
+         y="-277.33325"
+         inkscape:label="#Tektonika i sejsmologia" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect40"
+         width="6.0274882"
+         height="6.172729"
+         x="-83.64167"
+         y="-295.61398"
+         inkscape:label="#Górnictwo i petrologia" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect41"
+         width="6.0274882"
+         height="6.172729"
+         x="-106.33852"
+         y="-277.53867"
+         inkscape:label="#Stabilność gruntu, osuwiska, gleby" />
     </g>
   </g>
 </svg>
