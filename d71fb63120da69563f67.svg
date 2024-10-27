@@ -40,15 +40,15 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="1.2171294"
-     inkscape:cx="200.0609"
-     inkscape:cy="-36.561438"
-     inkscape:window-width="3360"
-     inkscape:window-height="1780"
-     inkscape:window-x="6708"
+     inkscape:zoom="1.7212809"
+     inkscape:cx="-96.149327"
+     inkscape:cy="0.87144405"
+     inkscape:window-width="3840"
+     inkscape:window-height="2050"
+     inkscape:window-x="-12"
      inkscape:window-y="-12"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer9" />
   <defs
      id="defs1">
     <rect
@@ -945,6 +945,233 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
          x="-298.99997"
          y="-40.128239"
          inkscape:label="#Zarządzanie i logistyka budownictwa" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer8"
+       inkscape:label="L3-wytwarzanie">
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect61"
+         width="6.0274882"
+         height="6.172729"
+         x="56.120895"
+         y="-461.55249"
+         inkscape:label="#Druk 3D metali i kompozytów" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect62"
+         width="6.0274882"
+         height="6.172729"
+         x="17.486876"
+         y="-455.59763"
+         inkscape:label="#Obróbka produktów, smarowanie" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect63"
+         width="6.0274882"
+         height="6.172729"
+         x="61.648163"
+         y="-406.19861"
+         inkscape:label="#Tranzystory, diody i okolice" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect64"
+         width="6.0274882"
+         height="6.172729"
+         x="89.993546"
+         y="-409.38232"
+         inkscape:label="#Kubity, kropki kwantowe i okolice" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect65"
+         width="6.0274882"
+         height="6.172729"
+         x="116.18221"
+         y="-413.49036"
+         inkscape:label="#Nanowstążki, heterostruktury van der Waalsa i okolice" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect66"
+         width="6.0274882"
+         height="6.172729"
+         x="142.88438"
+         y="-430.64136"
+         inkscape:label="#Izolatory topologiczne i okolice" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect67"
+         width="6.0274882"
+         height="6.172729"
+         x="168.35416"
+         y="-422.83612"
+         inkscape:label="#Cienkie filmy i nanoelektronika" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect68"
+         width="6.0274882"
+         height="6.172729"
+         x="114.95149"
+         y="-319.92566"
+         inkscape:label="#Silniki i spalanie" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect69"
+         width="6.0274882"
+         height="6.172729"
+         x="139.49716"
+         y="-297.41336"
+         inkscape:label="#Biomasa, ścieki, spalanie śmieci" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect70"
+         width="6.0274882"
+         height="6.172729"
+         x="114.539"
+         y="-386.48007"
+         inkscape:label="#Materiały ceramiczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect71"
+         width="6.0274882"
+         height="6.172729"
+         x="192.48882"
+         y="-397.46906"
+         inkscape:label="#Ogniwa fotowoltaiczne i perowskity" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect72"
+         width="6.0274882"
+         height="6.172729"
+         x="209.33173"
+         y="-408.45804"
+         inkscape:label="#Ogniwa paliwowe" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect73"
+         width="6.0274882"
+         height="6.172729"
+         x="218.9856"
+         y="-386.58276"
+         inkscape:label="#Nanopręciki i cienkie filmy ZnO" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect74"
+         width="6.0274882"
+         height="6.172729"
+         x="241.06624"
+         y="-378.77753"
+         inkscape:label="#Materiały do czujników gazu" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect75"
+         width="6.0274882"
+         height="6.172729"
+         x="262.83878"
+         y="-364.91293"
+         inkscape:label="#Baterie i elektrody" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect76"
+         width="6.0274882"
+         height="6.172729"
+         x="205.22371"
+         y="-364.70752"
+         inkscape:label="#Elektronika miękka, smart textiles" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect77"
+         width="6.0274882"
+         height="6.172729"
+         x="197.62386"
+         y="-329.17307"
+         inkscape:label="#Wytwarzanie addytywne (przyrostowe)" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect78"
+         width="6.0274882"
+         height="6.172729"
+         x="215.08296"
+         y="-319.8273"
+         inkscape:label="#Żywice, kompozyty, piany, włókna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect79"
+         width="6.0274882"
+         height="6.172729"
+         x="215.08296"
+         y="-319.8273"
+         inkscape:label="#Żywice, kompozyty, piany, włókna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect80"
+         width="6.0274882"
+         height="6.172729"
+         x="232.74748"
+         y="-306.47623"
+         inkscape:label="#Materiały ognioodporne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect81"
+         width="6.0274882"
+         height="6.172729"
+         x="253.90382"
+         y="-302.6763"
+         inkscape:label="#Ciekłe kryształy" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect82"
+         width="6.0274882"
+         height="6.172729"
+         x="260.57938"
+         y="-315.82199"
+         inkscape:label="#Teoria funkcjonału gęstości (DFT)" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect83"
+         width="6.0274882"
+         height="6.172729"
+         x="290.46527"
+         y="-330.6109"
+         inkscape:label="#Materiały katalityczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect84"
+         width="6.0274882"
+         height="6.172729"
+         x="287.79504"
+         y="-284.3956"
+         inkscape:label="#Urządzenia osmotyczne" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer9"
+       inkscape:label="L3-chemia">
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect86"
+         width="6.0274882"
+         height="6.172729"
+         x="299.85001"
+         y="-229.78511"
+         inkscape:label="#Materiały aktywne powierzchniowo" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect85"
+         width="6.0274882"
+         height="6.172729"
+         x="299.81104"
+         y="-255.12592"
+         inkscape:label="#Membrany filtracyjne"
+         inkscape:transform-center-y="0.10270083" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect87"
+         width="6.0274882"
+         height="6.172729"
+         x="261.79694"
+         y="-225.71837"
+         inkscape:label="#Bioreaktory, odpady aktywne chemicznie" />
     </g>
   </g>
 </svg>
