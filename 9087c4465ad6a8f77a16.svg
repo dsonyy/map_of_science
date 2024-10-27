@@ -40,15 +40,15 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
      showborder="false"
      borderlayer="false"
      shape-rendering="auto"
-     inkscape:zoom="1.7212809"
-     inkscape:cx="-96.149327"
-     inkscape:cy="0.87144405"
+     inkscape:zoom="9.7370352"
+     inkscape:cx="371.31426"
+     inkscape:cy="-107.37355"
      inkscape:window-width="3840"
      inkscape:window-height="2050"
      inkscape:window-x="-12"
      inkscape:window-y="-12"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer9" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <rect
@@ -343,10 +343,11 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        inkscape:label="#Woda i odpady" />
     <path
        class="fil0"
-       d="m 367.18622,-44.12477 c 5.25993,1.55101 21.53782,0.826454 27.49339,-2.281428 5.64792,-2.946919 11.14256,-2.11776 15.83362,-7.774437 4.88998,-5.896544 9.9204,-11.963516 14.01583,-19.307366 3.28094,-5.88302 8.98732,-11.826 11.93355,-20.0423 4.50227,-12.556419 7.46844,-18.722129 -6.92635,-20.749719 -7.59632,-1.06947 -22.06379,-0.0343 -30.12432,-0.0343 -9.55646,0 -26.85459,-2.68271 -35.02003,5.39562 -7.49741,7.41689 -15.60302,18.280269 -15.06066,34.224109 0.30192,8.87593 12.34722,27.728817 17.06288,29.96651 0.12541,0.05951 0.63498,0.556831 0.79209,0.603271 z"
+       d="m 367.18622,-44.12477 c 5.25993,1.55101 21.53782,0.826454 27.49339,-2.281428 5.64792,-2.946919 11.14256,-2.11776 15.83362,-7.774437 4.88998,-5.896544 9.9204,-11.963516 14.01583,-19.307366 3.28094,-5.88302 8.98732,-11.826 11.93355,-20.0423 4.50227,-12.556419 -4.34214,-17.284319 -18.73693,-19.311909 -7.59632,-1.06947 -10.25321,-1.47211 -18.31374,-1.47211 -9.55646,0 -26.85459,-2.68271 -35.02003,5.39562 -7.49741,7.41689 -15.60302,18.280269 -15.06066,34.224109 0.30192,8.87593 12.34722,27.728817 17.06288,29.96651 0.12541,0.05951 0.63498,0.556831 0.79209,0.603271 z"
        id="path32"
        style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       inkscape:label="#Terapeutyka molekularna" />
+       inkscape:label="#Terapeutyka molekularna"
+       sodipodi:nodetypes="scscccscssss" />
     <path
        class="fil0"
        d="m 350.74275,-225.55416 c -8.59797,-2.62094 -33.14486,7.52735 -42.37208,10.92876 -6.87717,2.53481 -19.9479,8.85789 -25.12204,16.82259 -2.5566,3.93524 -15.66722,29.65811 -11.72398,35.71381 4.79571,7.36459 18.20224,21.40845 24.54935,21.40845 7.76817,0 46.82844,-17.50477 53.35944,-24.22326 10.90566,-11.21867 31.19428,-6.43985 35.64491,-32.85932 3.26126,-19.35967 -19.32358,-24.43968 -27.04804,-26.19223 -1.63609,-0.37107 -5.65939,-0.67451 -7.03127,-1.40763 z"
@@ -480,6 +481,13 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
        id="path54"
        style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
        inkscape:label="#Ból" />
+    <path
+       class="fil0"
+       d="m 446.6501,-140.66245 c 5.45779,0.53392 2.8599,-8.96509 1.89299,-15.61286 -0.91658,-6.30422 -1.70863,-7.51961 -3.54762,-10.93984 -3.6277,-6.74692 -11.71377,-20.19541 -16.77978,-28.43748 -4.46959,-5.03957 -11.37858,-18.34496 -18.1611,-23.83908 -10.36534,-8.39605 -38.82687,-29.56126 -30.70522,-5.96262 9.11427,12.97909 22.32605,50.40145 26.99232,56.97397 17.92944,25.25391 7.70031,11.01509 16.67784,21.07458 4.98978,5.59116 10.05612,5.41537 14.18207,5.81901 z"
+       id="path87"
+       style="clip-rule:evenodd;display:inline;fill:#bbe9ab;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:0.609571;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       inkscape:label="#Fotochemia organiczna"
+       sodipodi:nodetypes="scscccssss" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1172,6 +1180,38 @@ d888888b d88888b .88b  d88. d8888b. db       .d8b.  d888888b d88888b
          x="261.79694"
          y="-225.71837"
          inkscape:label="#Bioreaktory, odpady aktywne chemicznie" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect88"
+         width="6.0274882"
+         height="6.172729"
+         x="388.58337"
+         y="-226.49869"
+         inkscape:label="#Organiczne LEDy i ogniwa fotowoltaiczne" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect89"
+         width="6.0274882"
+         height="6.172729"
+         x="415.49094"
+         y="-190.45076"
+         inkscape:label="#Efekty świetlne w materiałach organicznych" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect90"
+         width="6.0274882"
+         height="6.172729"
+         x="433.46356"
+         y="-157.79195"
+         inkscape:label="#Fotochemia farmaceutyczna" />
+      <rect
+         style="display:inline;fill:#000000"
+         id="rect91"
+         width="6.0274882"
+         height="6.172729"
+         x="402.13986"
+         y="-131.91138"
+         inkscape:label="#Mikrofluidyka i nanocząstki" />
     </g>
   </g>
 </svg>
