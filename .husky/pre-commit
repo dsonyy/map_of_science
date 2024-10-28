@@ -1,2 +1,2 @@
-# run prettier on all files
-npx prettier --write .
+# Format staged files
+npx lint-staged
