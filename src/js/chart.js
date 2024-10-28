@@ -3,11 +3,14 @@ import * as zoom from "./zoom";
 import * as foreground from "./foreground";
 import * as article from "./article";
 import {
+  CITY_5_OUTER_SIZE,
+  CITY_5_INNER_SIZE,
   CITY_SIZE_THRESHOLD_0,
   CITY_SIZE_THRESHOLD_1,
   CITY_SIZE_THRESHOLD_2,
   CITY_SIZE_THRESHOLD_3,
   CITY_SIZE_THRESHOLD_4,
+  CITY_SIZE_THRESHOLD_5,
 } from "./config";
 
 let plotGroup = null;
@@ -150,6 +153,26 @@ export function renderChart(data) {
         .style("fill", "black")
         .style("stroke", "black")
         .style("stroke-width", 1);
+    } else if (d.numRecentArticles <= CITY_SIZE_THRESHOLD_5) {
+      group
+        .append("rect")
+        .attr("class", "city5-outer")
+        .attr("x", zoom.xScale(d.x) - CITY_5_OUTER_SIZE / 2)
+        .attr("y", zoom.yScale(d.y) - CITY_5_OUTER_SIZE / 2)
+        .attr("width", CITY_5_OUTER_SIZE)
+        .attr("height", CITY_5_OUTER_SIZE)
+        .style("fill", "white")
+        .style("stroke", "black")
+        .style("stroke-width", 1);
+
+      group
+        .append("rect")
+        .attr("class", "city5-inner")
+        .attr("x", zoom.xScale(d.x) - CITY_5_INNER_SIZE / 2)
+        .attr("y", zoom.yScale(d.y) - CITY_5_INNER_SIZE / 2)
+        .attr("width", CITY_5_INNER_SIZE)
+        .attr("height", CITY_5_INNER_SIZE)
+        .style("fill", "black");
     }
   });
 
@@ -160,6 +183,14 @@ export function renderChart(data) {
       .selectAll("circle")
       .attr("cx", zoom.xScale(d.x))
       .attr("cy", zoom.yScale(d.y));
+    group
+      .selectAll(".city5-outer")
+      .attr("x", zoom.xScale(d.x) - CITY_5_OUTER_SIZE / 2)
+      .attr("y", zoom.yScale(d.y) - CITY_5_OUTER_SIZE / 2);
+    group
+      .selectAll(".city5-inner")
+      .attr("x", zoom.xScale(d.x) - CITY_5_INNER_SIZE / 2)
+      .attr("y", zoom.yScale(d.y) - CITY_5_INNER_SIZE / 2);
   });
 
   // EXIT phase for removed data points
