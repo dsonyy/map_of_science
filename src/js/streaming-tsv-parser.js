@@ -71,7 +71,7 @@ onmessage = async ({ data: filename }) => {
 
         read();
       },
-    })
+    }),
   );
 
   const data = await streamedResponse.text();

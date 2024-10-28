@@ -10,9 +10,16 @@
   letter-spacing: 0.03em;
 
   /* hack to make the shadow stronger */
-  text-shadow: 0 0 1px #f2efe9, 0 0 2px #f2efe9, 0 0 5px #f2efe9,
-    0 0 5px #f2efe9, 0 0 5px #f2efe9, 0 0 5px #f2efe9, 0 0 5px #f2efe9,
-    0 0 5px #f2efe9, 0 0 5px #f2efe9;
+  text-shadow:
+    0 0 1px #f2efe9,
+    0 0 2px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
+    0 0 5px #f2efe9;
 
   /* Smooth transition for hover effects */
   transition: color 0.1s ease;

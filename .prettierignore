@@ -1,0 +1,6 @@
+# Ignore artifacts:
+data
+dist
+node_modules
+tools
+asset

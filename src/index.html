@@ -1,14 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Map of Science</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link rel="stylesheet" href="styles.css"> -->
-  </head> 
+  </head>
   <body>
     <!-- article -->
     <div id="article" class="content">
@@ -22,14 +25,18 @@
       <!-- d3 plane -->
       <div id="chart-d3"></div>
       <!-- custom svg plane -->
-      <div id="foreground">
-        <%= htmlWebpackPlugin.options.foregroundSvg %>
-      </div>
+      <div id="foreground"><%= htmlWebpackPlugin.options.foregroundSvg %></div>
       <!-- annotation -->
       <div id="annotation">
         <div id="annotation-connection">
           <svg height="35" width="35" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="0" x2="35" y2="35" style="stroke:#70707070;stroke-width:1" />
+            <line
+              x1="0"
+              y1="0"
+              x2="35"
+              y2="35"
+              style="stroke: #70707070; stroke-width: 1"
+            />
           </svg>
         </div>
         <div id="annotation-body" class="content"></div>

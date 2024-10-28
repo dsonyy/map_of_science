@@ -84,7 +84,7 @@ export function getForegroundVisibilities(kZoom) {
       kZoom,
       layerMinZoom,
       layerMaxZoom,
-      radius
+      radius,
     );
     visibilities[index] = visibility;
   });

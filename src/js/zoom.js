@@ -74,7 +74,7 @@ function isDataPointInDomain(dataPoint, xScale, yScale) {
 
 function getDataPointsToRender(dataPointsSorted, xScale, yScale) {
   const dataInDomain = dataPointsSorted.filter((d) =>
-    isDataPointInDomain(d, xScale, yScale)
+    isDataPointInDomain(d, xScale, yScale),
   );
   const dataToRender = dataInDomain.slice(0, 300);
   return dataToRender;

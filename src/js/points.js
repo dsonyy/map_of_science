@@ -134,7 +134,7 @@ function handleLoaderWorkerMessage(
   { data: { items, totalBytes, finished } },
   parseItem,
   dataTarget,
-  onLoaded
+  onLoaded,
 ) {
   const rows = items.map(parseItem);
 
@@ -161,7 +161,7 @@ export function loadDataPoints() {
     new URL("../../asset/data.tsv", import.meta.url),
     parseDataPointItem,
     data, // Separate array for data points
-    handleDataPointsLoaded
+    handleDataPointsLoaded,
   );
 }
 
@@ -170,6 +170,6 @@ export function loadConcepts() {
     new URL("../../asset/keys.tsv", import.meta.url),
     parseConceptItem,
     [], // We don't need to store the concepts in an array, they go to the `concepts` object
-    handleConceptsLoaded
+    handleConceptsLoaded,
   );
 }

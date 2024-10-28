@@ -31,7 +31,7 @@ function buildChart(data) {
         d3
           .zoom()
           .scaleExtent([zoom.zoomMin, zoom.zoomMax])
-          .on("zoom", (event) => zoom.handleZoom(event, data))
+          .on("zoom", (event) => zoom.handleZoom(event, data)),
       )
       /**
        * Below line fixes error with:

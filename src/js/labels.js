@@ -42,7 +42,7 @@ function calcLabelFontSize(orgFontSizeInPx, kZoom) {
 
   const s = Math.min(
     Math.max(LABEL_ZOOM_SCALE_FACTOR_MIN, kZoom * LABEL_ZOOM_SCALE_FACTOR_K),
-    LABEL_ZOOM_SCALE_FACTOR_MAX
+    LABEL_ZOOM_SCALE_FACTOR_MAX,
   );
   const size = orgFontSizeInPx * Math.sqrt(s) + "px";
   return size;
@@ -125,7 +125,7 @@ function getLabelFromSvgElement(svgElement) {
   return new Label(
     getLabelTextFromSvgElement(svgElement),
     bbox.x + bbox.width / 2,
-    bbox.y + bbox.height / 2
+    bbox.y + bbox.height / 2,
   );
 }
 
