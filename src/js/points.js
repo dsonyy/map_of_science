@@ -3,6 +3,8 @@ import * as chart from "./chart";
 
 export let data = [];
 let concepts = {};
+// eslint-disable-next-line no-unused-vars
+let quadtree = null;
 
 function parseKeyConceptsRaw(keyConceptsRaw) {
   return keyConceptsRaw.split(",");
@@ -12,6 +14,7 @@ function parseConceptItem(item) {
   concepts[item["index"]] = item["key"];
 }
 
+// eslint-disable-next-line no-unused-vars
 function handleConceptsLoaded(conceptData) {
   console.log("Concepts Loaded");
   //   concepts = conceptData;
@@ -29,6 +32,7 @@ function parseDataPointItem(item) {
   };
 }
 
+// eslint-disable-next-line no-unused-vars
 function findClosestDataPoint(dataPoints, x, y, radius) {
   dataPoints.sort((a, b) => {
     const distA = Math.pow(a.x - x, 2) + Math.pow(a.y - y, 2);
@@ -130,6 +134,7 @@ function buildLoaderWorker() {
 }
 
 function handleLoaderWorkerMessage(
+  // eslint-disable-next-line no-unused-vars
   { data: { items, totalBytes, finished } },
   parseItem,
   dataTarget,
