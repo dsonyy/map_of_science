@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import { getForegroundLayers, getForegroundVisibilities } from "./foreground";
 import * as article from "./article";
 import {
+  IS_LABEL_ZOOM_SCALING,
   LABEL_ZOOM_SCALE_FACTOR_K,
   LABEL_ZOOM_SCALE_FACTOR_MAX,
   LABEL_ZOOM_SCALE_FACTOR_MIN,
@@ -37,6 +38,8 @@ export function initLabels(xScale, yScale, kZoom) {
 }
 
 function calcLabelFontSize(orgFontSizeInPx, kZoom) {
+  if (!IS_LABEL_ZOOM_SCALING) return orgFontSizeInPx + "px";
+
   const s = Math.min(
     Math.max(LABEL_ZOOM_SCALE_FACTOR_MIN, kZoom * LABEL_ZOOM_SCALE_FACTOR_K),
     LABEL_ZOOM_SCALE_FACTOR_MAX
@@ -61,15 +64,13 @@ export function updateLabels(xScale, yScale, kZoom) {
         const y = label.attr("y");
         const xMoved = xScale(x);
         const yMoved = yScale(-y);
+        const orgFontSize = label.attr("org-font-size");
         label
           .style("left", xMoved + "px")
           .style("top", yMoved + "px")
           .style("opacity", visibilities[layer_no])
           .style("display", visibilities[layer_no] == 0 ? "none" : "block")
-          .style(
-            "font-size",
-            calcLabelFontSize(label.attr("org-font-size"), kZoom)
-          )
+          .style("font-size", calcLabelFontSize(orgFontSize, kZoom))
           .on("click", () => handleClickLabel(labels[index]))
           .on("mouseover", () => handleHoverInLabel(label))
           .on("mouseout", () => handleHoverOutLabel(label));

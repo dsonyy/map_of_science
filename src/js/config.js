@@ -21,6 +21,7 @@ export const LAYER_ZOOM_RADIUS_1 = LAYER_ZOOM_THRESHOLD_1;
 export const LAYER_ZOOM_RADIUS_2 = LAYER_ZOOM_THRESHOLD_2;
 
 // Labels
+export const IS_LABEL_ZOOM_SCALING = true;
 export const LABEL_ZOOM_SCALE_FACTOR_MIN = 0.5;
-export const LABEL_ZOOM_SCALE_FACTOR_MAX = 1.5;
+export const LABEL_ZOOM_SCALE_FACTOR_MAX = 16.0;
 export const LABEL_ZOOM_SCALE_FACTOR_K = 0.5;
