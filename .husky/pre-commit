@@ -1,2 +1,5 @@
 # Format staged files
 npx lint-staged
+
+# Run ESLint
+npx eslint src/

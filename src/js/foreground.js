@@ -1,6 +1,4 @@
 import * as d3 from "d3";
-import Foreground from "../../asset/foreground.svg";
-import { zoomMax } from "./zoom";
 import * as labels from "./labels";
 import {
   LAYER_ZOOM_THRESHOLD_0,

@@ -3,7 +3,6 @@ import * as chart from "./chart";
 
 export let data = [];
 let concepts = {};
-let quadtree = null;
 
 function parseKeyConceptsRaw(keyConceptsRaw) {
   return keyConceptsRaw.split(",");

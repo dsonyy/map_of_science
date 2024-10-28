@@ -76,8 +76,8 @@ export function renderChart(data) {
   newShapes.each(function (d) {
     const group = d3
       .select(this)
-      .on("mouseover", (event) => {})
-      .on("click", (event) => {
+      .on("mouseover", () => {})
+      .on("click", () => {
         article.enableArticle(d);
       });
 
