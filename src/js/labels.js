@@ -1,6 +1,11 @@
 import * as d3 from "d3";
 import { getForegroundLayers, getForegroundVisibilities } from "./foreground";
 import * as article from "./article";
+import {
+  LABEL_ZOOM_SCALE_FACTOR_K,
+  LABEL_ZOOM_SCALE_FACTOR_MAX,
+  LABEL_ZOOM_SCALE_FACTOR_MIN,
+} from "./config";
 
 class Label {
   constructor(html, x, y) {
@@ -18,15 +23,30 @@ export function initLabels(xScale, yScale, kZoom) {
     const LabelsDivLayer = getLabelsDivLayer(layer_no);
 
     getLabelsFromSvgGroup(layer).forEach((label) => {
+      const orgFontSize = getFontSizeInPx(LabelsDivLayer);
       LabelsDivLayer.append("div")
         .attr("class", "label")
         .attr("x", label.x)
         .attr("y", label.y)
+        .attr("org-font-size", orgFontSize)
         .text(label.html);
     });
   });
 
   updateLabels(xScale, yScale, kZoom);
+}
+
+function calcLabelFontSize(orgFontSizeInPx, kZoom) {
+  const s = Math.min(
+    Math.max(LABEL_ZOOM_SCALE_FACTOR_MIN, kZoom * LABEL_ZOOM_SCALE_FACTOR_K),
+    LABEL_ZOOM_SCALE_FACTOR_MAX
+  );
+  const size = orgFontSizeInPx * Math.sqrt(s) + "px";
+  return size;
+}
+
+function getFontSizeInPx(element) {
+  return parseFloat(element.style("font-size"));
 }
 
 export function updateLabels(xScale, yScale, kZoom) {
@@ -46,6 +66,10 @@ export function updateLabels(xScale, yScale, kZoom) {
           .style("top", yMoved + "px")
           .style("opacity", visibilities[layer_no])
           .style("display", visibilities[layer_no] == 0 ? "none" : "block")
+          .style(
+            "font-size",
+            calcLabelFontSize(label.attr("org-font-size"), kZoom)
+          )
           .on("click", () => handleClickLabel(labels[index]))
           .on("mouseover", () => handleHoverInLabel(label))
           .on("mouseout", () => handleHoverOutLabel(label));
