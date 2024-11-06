@@ -81,7 +81,7 @@ export function updateLabels(xScale, yScale, kZoom) {
 export function getLabelsFromSvgGroup(svgGroup) {
   const labels = [];
   d3.select(svgGroup)
-    .selectAll("path")
+    .selectAll("path, rect")
     .each((_data, index, nodes) => {
       labels.push(getLabelFromSvgElement(nodes[index]));
     });
@@ -130,7 +130,6 @@ function getLabelFromSvgElement(svgElement) {
 }
 
 function handleClickLabel(label) {
-  console.log(label);
   const labelId = label.innerHTML;
   article.enableLabelArticle(labelId);
 }

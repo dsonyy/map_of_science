@@ -19,6 +19,7 @@
     0 0 5px #f2efe9,
     0 0 5px #f2efe9,
     0 0 5px #f2efe9,
+    0 0 5px #f2efe9,
     0 0 5px #f2efe9;
 
   /* Smooth transition for hover effects */
@@ -35,6 +36,12 @@
   color: rgb(57, 57, 57);
   font-size: 0.8em;
   font-style: italic;
+  font-weight: bold;
+}
+
+#labels2 {
+  color: rgb(153, 91, 153);
+  font-size: 0.4em;
   font-weight: bold;
 }
 
