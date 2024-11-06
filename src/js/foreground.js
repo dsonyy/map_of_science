@@ -9,6 +9,11 @@ import {
   LAYER_ZOOM_RADIUS_2,
 } from "./config";
 
+function hideForegroundRects() {
+  // set display none for all rects in the foreground
+  selectForegroundSvg().selectAll("rect").style("display", "none");
+}
+
 export function initForeground(xScale, yScale, kZoom) {
   selectForegroundSvg()
     .attr("width", "100%")
@@ -19,6 +24,8 @@ export function initForeground(xScale, yScale, kZoom) {
   updateForeground(xScale, yScale, initialZoom);
 
   labels.initLabels(xScale, yScale, kZoom);
+
+  hideForegroundRects();
 }
 
 export function updateForeground(xScale, yScale, kZoom) {
