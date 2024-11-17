@@ -1,26 +1,18 @@
 #annotation {
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 3;
-  visibility: hidden;
-  pointer-events: none;
-}
+  height: auto;
+  white-space: nowrap;
+  padding: 10px;
 
-#annotation-connection {
-  position: absolute;
-  top: 0;
-  left: 0;
+  transform: translate(-50%, 20%);
+
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 #annotation-body {
-  position: absolute;
-  top: 33px;
-  left: 33px;
-  z-index: 3;
-  display: inline-table;
-  height: auto;
-  white-space: nowrap;
 }
 
 .few-articles {
@@ -32,7 +24,7 @@
 }
 
 #article {
-  overflow: hidden; /* Smooth scrolling */
+  overflow: hidden;
   visibility: hidden;
   position: absolute;
   z-index: 30;
@@ -42,11 +34,16 @@
   top: 25px;
   background-color: #ffffff; /* White background */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
+  line-height: 1.3rem;
+}
+
+p {
+  text-align: justify;
 }
 
 #article-content {
-  height: 100%;
+  height: 80%;
   width: 100%;
 }
 
@@ -58,6 +55,7 @@ button {
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
 #article-close {
@@ -267,9 +265,6 @@ tr:nth-child(even) {
     0 0 5px #f2efe9,
     0 0 5px #f2efe9,
     0 0 5px #f2efe9;
-
-  /* Smooth transition for hover effects */
-  transition: color 0.1s ease;
 }
 
 #labels0 {
@@ -291,9 +286,18 @@ tr:nth-child(even) {
   font-weight: bold;
 }
 
-.label-hover {
+.label-available {
+  transition: color 0.2s ease;
+  color: blue;
+  text-decoration: underline;
+}
+
+.label-available:hover {
   cursor: pointer;
-  color: rgb(255, 0, 0);
+  animation: hover-animation 1s ease-in-out infinite;
+}
+
+.label-unavailable {
 }
 
 #ff {
@@ -301,6 +305,16 @@ tr:nth-child(even) {
   left: 0;
   top: 0;
   pointer-events: visiblePainted;
+}
+
+@keyframes hover-animation {
+  0% {
+  }
+  50% {
+    color: rgb(255, 109, 109);
+  }
+  100% {
+  }
 }
 
 @charset "UTF-8";/*!
