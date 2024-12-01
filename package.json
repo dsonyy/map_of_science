@@ -35,7 +35,7 @@
     "lint-staged": "^15.2.10",
     "postcss-loader": "^8.1.1",
     "prettier": "3.3.3",
-    "sass": "^1.77.6",
+    "sass": "^1.81.0",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.92.1",
