@@ -28,7 +28,7 @@
   visibility: hidden;
   position: absolute;
   z-index: 30;
-  width: 800px; /* Responsive width */
+  width: min(800px, calc(100vw - 50px)); /* Responsive width */
   height: calc(100vh - 50px - 16px); /* Responsive height */
   right: 25px;
   top: 25px;
@@ -252,6 +252,7 @@ tr:nth-child(even) {
   text-align: center;
   font-family: Arial, sans-serif;
   letter-spacing: 0.03em;
+  pointer-events: none;
 
   /* hack to make the shadow stronger */
   text-shadow:
@@ -286,10 +287,21 @@ tr:nth-child(even) {
   font-weight: bold;
 }
 
+#labels3 {
+  font-size: 3px;
+}
+
+#labels3 .label {
+  text-align: center;
+  width: 10em;
+  transform: translate(-50%, 10px);
+}
+
 .label-available {
   transition: color 0.2s ease;
   color: blue;
   text-decoration: underline;
+  pointer-events: auto;
 }
 
 .label-available:hover {
@@ -304,7 +316,7 @@ tr:nth-child(even) {
   position: absolute;
   left: 0;
   top: 0;
-  pointer-events: visiblePainted;
+  pointer-events: none;
 }
 
 @keyframes hover-animation {
