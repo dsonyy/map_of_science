@@ -2,8 +2,8 @@ import * as chart from "./chart";
 
 export let data = [];
 let concepts = {};
-export let cityLabels = [];
-let cityLabelsByClusterId = {};
+let cityLabels = [];
+export let cityLabelsByClusterId = {};
 
 function parseKeyConceptsRaw(keyConceptsRaw) {
   return keyConceptsRaw.split(",");

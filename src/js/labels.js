@@ -7,6 +7,7 @@ import {
   LABEL_ZOOM_SCALE_FACTOR_MAX,
   LABEL_ZOOM_SCALE_FACTOR_MIN,
 } from "./config";
+import { data } from "./points";
 
 class Label {
   constructor(html, x, y) {
@@ -18,19 +19,19 @@ class Label {
 
 export function initLabels(xScale, yScale, kZoom) {
   article.fetchAvailableArticlesList().then(() => {
-    initLabelsAfterFetchingArticlesList(xScale, yScale, kZoom);
+    buildLabelsDiv();
+    initLabelsAfterFetchingArticlesList();
+    updateLabels(xScale, yScale, kZoom);
   });
 }
 
-function initLabelsAfterFetchingArticlesList(xScale, yScale, kZoom) {
-  buildLabelsDiv();
-
+function initLabelsAfterFetchingArticlesList() {
   getForegroundLayers().forEach((layer, layer_no) => {
     buildLabelsDivLayer(layer_no);
     const LabelsDivLayer = getLabelsDivLayer(layer_no);
+    const orgFontSize = getFontSizeInPx(LabelsDivLayer);
 
     getLabelsFromSvgGroup(layer).forEach((label) => {
-      const orgFontSize = getFontSizeInPx(LabelsDivLayer);
       LabelsDivLayer.append("div")
         .attr("x", label.x)
         .attr("y", label.y)
@@ -40,33 +41,22 @@ function initLabelsAfterFetchingArticlesList(xScale, yScale, kZoom) {
         .classed("label-unavailable", !article.isArticleAvailable(label.html))
         .text(label.html);
     });
+
+    // Add city labels to the last layer
+    if (layer_no === getForegroundLayers().length - 1) {
+      data.forEach((dataPoint) => {
+        if (dataPoint.cityLabel) {
+          LabelsDivLayer.append("div")
+            .attr("x", dataPoint.x)
+            .attr("y", dataPoint.y)
+            .attr("org-font-size", orgFontSize)
+            .classed("label", true)
+            .classed("city-label", true)
+            .text(dataPoint.cityLabel);
+        }
+      });
+    }
   });
-
-  // Add an additional layer for city labels
-  buildLabelsDivLayer(getForegroundLayers().length + 1);
-  const cityLabelsLayer = getLabelsDivLayer(getForegroundLayers().length + 1);
-
-  // Add city labels with larger font size
-  cityLabelsLayer.style("font-size", "24px");
-  cityLabelsLayer
-    .selectAll(".label")
-    .data([
-      { html: "Warszawa", x: 52.2297, y: 21.0122 },
-      { html: "Kraków", x: 50.0647, y: 19.945 },
-      { html: "Łódź", x: 51.7592, y: 19.4559 },
-      { html: "Wrocław", x: 51.1079, y: 17.0385 },
-      { html: "Poznań", x: 52.4064, y: 16.9252 },
-    ])
-    .enter()
-    .append("div")
-    .attr("x", (d) => d.x)
-    .attr("y", (d) => d.y)
-    .attr("org-font-size", 24)
-    .classed("label", true)
-    .classed("label-city", true)
-    .text((d) => d.html);
-
-  updateLabels(xScale, yScale, kZoom);
 }
 
 function calcLabelFontSize(orgFontSizeInPx, kZoom) {
@@ -94,17 +84,23 @@ export function updateLabels(xScale, yScale, kZoom) {
         const label = d3.select(labels[index]);
         const x = label.attr("x");
         const y = label.attr("y");
+        const isCityLabel = label.classed("city-label");
         const xMoved = xScale(x);
-        const yMoved = yScale(-y);
+        const yMoved = yScale(isCityLabel ? y : -y);
         const orgFontSize = label.attr("org-font-size");
-        const isAvailable = article.isArticleAvailable(label.text());
+        const isAvailable =
+          !isCityLabel && article.isArticleAvailable(label.text());
+
         label
           .style("left", xMoved + "px")
           .style("top", yMoved + "px")
           .style("opacity", visibilities[layer_no])
           .style("display", visibilities[layer_no] == 0 ? "none" : "block")
-          .style("font-size", calcLabelFontSize(orgFontSize, kZoom))
-          .on("click", () => handleClickLabel(isAvailable, labels[index]));
+          .style("font-size", calcLabelFontSize(orgFontSize, kZoom));
+
+        if (!isCityLabel) {
+          label.on("click", () => handleClickLabel(isAvailable, labels[index]));
+        }
       });
   });
 }
