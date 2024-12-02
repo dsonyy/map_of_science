@@ -43,6 +43,16 @@
   font-weight: bold;
 }
 
+#labels3 {
+  font-size: 3px;
+}
+
+#labels3 .label {
+  text-align: center;
+  width: 10em;
+  transform: translate(-50%, 10px);
+}
+
 .label-available {
   transition: color 0.2s ease;
   color: blue;
