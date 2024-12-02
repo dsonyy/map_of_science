@@ -26,7 +26,8 @@ export function initLabels(xScale, yScale, kZoom) {
 }
 
 function initLabelsAfterFetchingArticlesList() {
-  getForegroundLayers().forEach((layer, layer_no) => {
+  [...getForegroundLayers()].reverse().forEach((layer, i) => {
+    const layer_no = getForegroundLayers().length - 1 - i;
     buildLabelsDivLayer(layer_no);
     const LabelsDivLayer = getLabelsDivLayer(layer_no);
     const orgFontSize = getFontSizeInPx(LabelsDivLayer);
