@@ -42,6 +42,30 @@ function initLabelsAfterFetchingArticlesList(xScale, yScale, kZoom) {
     });
   });
 
+  // Add an additional layer for city labels
+  buildLabelsDivLayer(getForegroundLayers().length + 1);
+  const cityLabelsLayer = getLabelsDivLayer(getForegroundLayers().length + 1);
+
+  // Add city labels with larger font size
+  cityLabelsLayer.style("font-size", "24px");
+  cityLabelsLayer
+    .selectAll(".label")
+    .data([
+      { html: "Warszawa", x: 52.2297, y: 21.0122 },
+      { html: "Kraków", x: 50.0647, y: 19.945 },
+      { html: "Łódź", x: 51.7592, y: 19.4559 },
+      { html: "Wrocław", x: 51.1079, y: 17.0385 },
+      { html: "Poznań", x: 52.4064, y: 16.9252 },
+    ])
+    .enter()
+    .append("div")
+    .attr("x", (d) => d.x)
+    .attr("y", (d) => d.y)
+    .attr("org-font-size", 24)
+    .classed("label", true)
+    .classed("label-city", true)
+    .text((d) => d.html);
+
   updateLabels(xScale, yScale, kZoom);
 }
 
