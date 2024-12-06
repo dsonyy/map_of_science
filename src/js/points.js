@@ -125,22 +125,28 @@ function parseCityLabelItem(item) {
 }
 
 function loadCityLabels() {
-  loadData(
-    new URL("../../asset/labels.tsv", import.meta.url),
-    parseCityLabelItem,
-    cityLabels, // Store city labels in the cityLabels array
-    () => {},
-  );
+  return new Promise((resolve) => {
+    loadData(
+      new URL("../../asset/labels.tsv", import.meta.url),
+      parseCityLabelItem, // sets cityLabelsByClusterId
+      cityLabels, // Store city labels in the cityLabels array
+      () => {
+        resolve();
+      },
+    );
+  });
 }
 
-export function loadDataPoints() {
+export async function loadDataPoints() {
+  await loadCityLabels();
+  // `parseDataPointItem` relies on `cityLabelsByClusterId`, which is populated by `loadCityLabels`.
+  // So, we need to ensure that city labels are fully loaded before loading data points.
   loadData(
     new URL("../../asset/data.tsv", import.meta.url),
     parseDataPointItem,
     data, // Separate array for data points
     handleDataPointsLoaded,
   );
-  loadCityLabels(); // Load city labels after loading data points
 }
 
 export function loadConcepts() {
