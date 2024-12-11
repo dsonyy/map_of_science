@@ -21,6 +21,8 @@ cluster_id	label
 10916	Obrazowanie w ośrodkach rozpraszających
 1945	Wyświetlacze holograficzne
 3172	Materia aktywna
+999999	FIZYKA >>> FIZYKA TEORETYCZNA
+27898	Automatyczna identyfikacja i oznaczanie zdarzeń w fizyce cząstek
 999999	MÓZG----------------------------------------------------
 30288	Anosmia i inne zaburzenia węchu
 9188	Substancje psychodeliczne
@@ -44,3 +46,4 @@ cluster_id	label
 414	Nanokryształy celulozy (CNC)
 27	Inżynieria chemiczna biomasy drzewnej
 6550	Materiały i związki pochodzenia naturalnego w produkcji opakowań
+
